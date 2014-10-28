@@ -1,7 +1,6 @@
-
+<div class="hidden">如果你看到这行字, 说明打开的方式不太对. 我们墙裂建议你观看<a href="http://scau-sidc.github.io/git-tutorial/">用 Bootstrap 渲染的页面</a></div>
 <div class="alert alert-info">
-test...test 啊很好可以使用 Bootstrap   
-注意这些小框框的提示哦, 里面会夹杂很多有用的或者没用的吐槽.
+<strong>如果你看到这个蓝色的小框框</strong> 那就对了. 大家好我是小框框, 肩负着插入和旁白的职责 (｀･ω･)ノ
 </div>
 
 # 超科学的git和Github讲座
@@ -98,6 +97,7 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 红黄绿的很好看对吧? 时间关系我就不画箭头什么的了...  
 <span class="bg-danger">左上角红色的部分</span> 表示 工作副本(Working Copy), 也就是你以传统方式写代码时(aka. 不使用 git ), 打开项目文件夹会看到的文件集合. 仅当你新建/修改/删除文件时, 他们会被列出在这里.  
 <span class="bg-success">左下角绿色的部分</span> 表示 Index(可以理解成缓存区, 目前没有公认的中文翻译), 是你在缓存改动准备用于提交的地方, 关于<b>提交</b>的概念将在后文详述.  
-<abbr title="Working Copy">WC</abbr> 和 Index 中的文件图标是可以点击的(注意我说的是图标= =b). WC 中的文件被点后会进入 Index, 意思是你缓存( `stage` )这个改动; Index 中的文件被点后会进入 WC, 意思是你放弃缓存这个文件的改动( `reset --mixed` ); 
-<span class="bg-warning">左上角黄色的部分</span> 表示 差异(diff) 仅在你在点击 WC 或者 Index 中的文件名时(注意我说的是文件名= =b), 这个区域会列出这个文件改动了哪些行.
-右下角是用来写 <b>提交说明</b> 这个也在后文讲.
+<abbr title="Working Copy">WC</abbr> 和 Index 中的文件图标是可以点击的(注意我说的是图标= =b). WC 中的文件被点后会进入 Index, 意思是你缓存( `stage` )这个改动; Index 中的文件被点后会进入 WC, 意思是你放弃缓存这个文件的改动( `reset --mixed` );  
+  
+<span class="bg-warning">左上角黄色的部分</span> 表示 差异(diff) 仅在你在点击 WC 或者 Index 中的文件名时(注意我说的是文件名= =b), 这个区域会列出这个文件改动了哪些行.  
+右下角是用来写 <b>提交说明</b> 这个也在后文讲.  

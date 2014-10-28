@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="./bootstrap-3.2.0-dist/css/bootstrap.min.css">
+<script src="./jquery/jquery.1.11.1.min.js"></script>
+<script src="./bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<title>index</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<style type="text/css">
+/* GitHub stylesheet for MarkdownPad (http://markdownpad.com) */
+/* Author: Nicolas Hery - http://nicolashery.com */
+/* Version: b13fe65ca28d2e568c6ed5d7f06581183df8f2ff */
+/* Source: https://github.com/nicolahery/markdownpad-github */
+
+/* RESET
+=============================================================================*/
+
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+/* BODY
+=============================================================================*/
+
+body {
+  font-family: Helvetica, arial, freesans, clean, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+  padding: 20px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body>*:first-child {
+  margin-top: 0 !important;
+}
+
+body>*:last-child {
+  margin-bottom: 0 !important;
+}
+
+/* BLOCKS
+=============================================================================*/
+
+p, blockquote, ul, ol, dl, table, pre {
+  margin: 15px 0;
+}
+
+/* HEADERS
+=============================================================================*/
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 20px 0 10px;
+  padding: 0;
+  font-weight: bold;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1 tt, h1 code, h2 tt, h2 code, h3 tt, h3 code, h4 tt, h4 code, h5 tt, h5 code, h6 tt, h6 code {
+  font-size: inherit;
+}
+
+h1 {
+  font-size: 28px;
+  color: #000;
+}
+
+h2 {
+  font-size: 24px;
+  border-bottom: 1px solid #ccc;
+  color: #000;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 16px;
+}
+
+h5 {
+  font-size: 14px;
+}
+
+h6 {
+  color: #777;
+  font-size: 14px;
+}
+
+body>h2:first-child, body>h1:first-child, body>h1:first-child+h2, body>h3:first-child, body>h4:first-child, body>h5:first-child, body>h6:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+a:first-child h1, a:first-child h2, a:first-child h3, a:first-child h4, a:first-child h5, a:first-child h6 {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+h1+p, h2+p, h3+p, h4+p, h5+p, h6+p {
+  margin-top: 10px;
+}
+
+/* LINKS
+=============================================================================*/
+
+a {
+  color: #4183C4;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* LISTS
+=============================================================================*/
+
+ul, ol {
+  padding-left: 30px;
+}
+
+ul li > :first-child, 
+ol li > :first-child, 
+ul li ul:first-of-type, 
+ol li ol:first-of-type, 
+ul li ol:first-of-type, 
+ol li ul:first-of-type {
+  margin-top: 0px;
+}
+
+ul ul, ul ol, ol ol, ol ul {
+  margin-bottom: 0;
+}
+
+dl {
+  padding: 0;
+}
+
+dl dt {
+  font-size: 14px;
+  font-weight: bold;
+  font-style: italic;
+  padding: 0;
+  margin: 15px 0 5px;
+}
+
+dl dt:first-child {
+  padding: 0;
+}
+
+dl dt>:first-child {
+  margin-top: 0px;
+}
+
+dl dt>:last-child {
+  margin-bottom: 0px;
+}
+
+dl dd {
+  margin: 0 0 15px;
+  padding: 0 15px;
+}
+
+dl dd>:first-child {
+  margin-top: 0px;
+}
+
+dl dd>:last-child {
+  margin-bottom: 0px;
+}
+
+/* CODE
+=============================================================================*/
+
+pre, code, tt {
+  font-size: 12px;
+  font-family: Consolas, "Liberation Mono", Courier, monospace;
+}
+
+code, tt {
+  margin: 0 0px;
+  padding: 0px 0px;
+  white-space: nowrap;
+  border: 1px solid #eaeaea;
+  background-color: #f8f8f8;
+  border-radius: 3px;
+}
+
+pre>code {
+  margin: 0;
+  padding: 0;
+  white-space: pre;
+  border: none;
+  background: transparent;
+}
+
+pre {
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  line-height: 19px;
+  overflow: auto;
+  padding: 6px 10px;
+  border-radius: 3px;
+}
+
+pre code, pre tt {
+  background-color: transparent;
+  border: none;
+}
+
+kbd {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: #DDDDDD;
+    background-image: linear-gradient(#F1F1F1, #DDDDDD);
+    background-repeat: repeat-x;
+    border-color: #DDDDDD #CCCCCC #CCCCCC #DDDDDD;
+    border-image: none;
+    border-radius: 2px 2px 2px 2px;
+    border-style: solid;
+    border-width: 1px;
+    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    line-height: 10px;
+    padding: 1px 4px;
+}
+
+/* QUOTES
+=============================================================================*/
+
+blockquote {
+  border-left: 4px solid #DDD;
+  padding: 0 15px;
+  color: #777;
+}
+
+blockquote>:first-child {
+  margin-top: 0px;
+}
+
+blockquote>:last-child {
+  margin-bottom: 0px;
+}
+
+/* HORIZONTAL RULES
+=============================================================================*/
+
+hr {
+  clear: both;
+  margin: 15px 0;
+  height: 0px;
+  overflow: hidden;
+  border: none;
+  background: transparent;
+  border-bottom: 4px solid #ddd;
+  padding: 0;
+}
+
+/* TABLES
+=============================================================================*/
+
+table th {
+  font-weight: bold;
+}
+
+table th, table td {
+  border: 1px solid #ccc;
+  padding: 6px 13px;
+}
+
+table tr {
+  border-top: 1px solid #ccc;
+  background-color: #fff;
+}
+
+table tr:nth-child(2n) {
+  background-color: #f8f8f8;
+}
+
+/* IMAGES
+=============================================================================*/
+
+img {
+  max-width: 100%
+}
+</style>
+</head>
+<body>
+<div class="hidden">如果你看到这行字, 说明打开的方式不太对. 我们墙裂建议你观看<a href="http://scau-sidc.github.io/git-tutorial/">用 Bootstrap 渲染的页面</a></div>
+
+<div class="alert alert-info">
+<strong>如果你看到这个蓝色的小框框</strong> 那就对了. 大家好我是小框框, 肩负着插入和旁白的职责 (｀･ω･)ノ
+</div>
+
+<h1>超科学的git和Github讲座</h1>
+
+<blockquote>
+  <p>@author <img src="https://avatars0.githubusercontent.com/u/2285039?v=2&amp;s=20" alt="" /> cuter44  <br />
+  @version 3.0.0-build20141028  <br />
+  @license <img src="https://i.creativecommons.org/l/by/3.0/cn/80x15.png" alt="" /> CC 3.0 BY CN  <br />
+  @acknowledge <a href="https://github.com/">Github</a>, <a href="https://stackedit.io/‎">StackEdit</a>, <a href="https://github.com/scau-sidc">SCAU-SIDC</a>  <br />
+  @source hosted on <a href="https://github.com/scau-sidc/git-tutorial/">Github</a>    </p>
+</blockquote>
+
+<h2>0.</h2>
+
+<p>通常来说这个时候应该说下 <em>git是什么</em>, 不过为了以行动表达对国产垃圾教材的鄙视, 我决定啥都不写有兴趣的话自己翻<a href="http://zh.wikipedia.org/wiki/Git">维基</a>去. 现在, 只需要将 git 理解成 <strong>一个可以在多人环境下随时保存和合并源代码的工具</strong> 即可.  </p>
+
+<p>还有 Github, Github 就是依托 git 所建立的代码托管平台/社区, 如果非要做个对比的话它有点像 Google Code 和 SourceForge. 你可以在那里四处乱逛, 寻找自己想要的代码, 吐槽别人; 或者直接脑洞大开自己写个软件出来, 搞不好还会受到路过大神的加持...</p>
+
+<p>然后呢, 我们的目标是, 写一个"萌萌哒的""一个一两个钟能学会, 并且一两个钟之后还想回头看的教程". 在这个教程中我们会以一种实践的态度完成对git的学习, 各位一定要全力地去do哦 ^▽^</p>
+
+<div class="alert alert-info">比如这个教程就是托管在Github上面的, 如果有幸能接收到<a href="https://github.com/scau-sidc/git-tutorial/issues">小纸条</a>的话我会很开心的~</div>
+
+<h2>1. 首先, 我们需要一个工具</h2>
+
+<p>那当然就是在自机部署一个 git 了.  </p>
+
+<h3>on Linux</h3>
+
+<p>一个命令搞掂:  </p>
+
+<pre><code>apt-get install git
+</code></pre>
+
+<p>, 或者等价的包管理器指令(yum, pacman 等)</p>
+
+<h3>on Windows</h3>
+
+<p>这里是适合普通人的操作步骤:  </p>
+
+<p>作为一个有强烈<del>责任心</del>精神洁癖的软件攻城狮, 我会墙裂推荐从官方软件源获得软件:</p>
+
+<p><a href="http://git-scm.org/">http://git-scm.org/</a></p>
+
+<p>然后按蓝星人的风俗一路 Next 下去, 除了这些点: </p>
+
+<p><img src="./asset/setup-4.png" alt="" />  <br />
+建议这么点, 理由是我有精神洁癖   </p>
+
+<p><img src="./asset/setup-6.png" alt="" />  <br />
+建议这么点, 理由是这样对蓝星人友好  </p>
+
+<p><img src="./asset/setup-7.png" alt="" />  <br />
+建议这么点, 理由是: 现在除了Microsoft Notepad以外已经没有哪个编辑器不能 handle \r\n 这个问题了, 这样可以避免引入污染.</p>
+
+<h3>...and Github</h3>
+
+<p>这里先说明一点, git是一种对等的分布式仓库系统, aka. 它不是非要一个服务器端才能互相交流. 它支持多种通信协议 包括 <code>git://</code>, <code>ssh://</code>, <code>https://</code>, 甚至<code>file:///</code>. 换句话说, 只要能够读写对应的文件, 任何一台机器/存储设备都可以作为远程仓库, 甚至不必在上面安装 git .</p>
+
+<p>辣么为啥要有 Github 呢? ...这问题谁也说不清楚. 其中一点或许是他实践了开源精神, 将代码作为交流话题, 并使他看得见摸得着, 看到代码推动世界的前进甚至亲手影响世界... <del>起码比刷微博来得有意义.</del><br />
+不对我要说的不是这个!! ≧□≦"</p>
+
+<p>Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视化之外, 还集成了问题追踪(Issue), 代码速记(Gist), Pull Request 等有效提升程序猿战斗力的工具. 反正...用过都说好...</p>
+
+<p>废话了这么多总该去注册个 Github 帐号吧? 快去!! → <a href="https://github.com/join">https://github.com/join</a><br />
+然后找到组织→ <a href="https://github.com/scau-sidc">https://github.com/scau-sidc</a> , 加不进去对吧? 嗯这坑爹的至今都没有站内信功能, 所以你只能私下找老邝或者副主任等老油条把你拉进去了. </p>
+
+<div class="alert alert-warning"><strong>注意</strong> 必须提前做好这一步, 因为下一步实验会用到里面的仓库, 不加进来的话就只能干瞪眼了 (.ㅍ_ㅍ)</div>
+
+<p>英文界面不会撸? 可以去看看 <a href="https://help.github.com/categories/bootcamp/">Github官方的新手教程</a> (←还是英文的), 或者在本教程的稍后部分也会教授一点.</p>
+
+<h2>2. 心に刻んだ夢を放て!</h2>
+
+<p><img src="./asset/72f5bfea-s.jpg" alt="" /></p>
+
+<div class="alert alert-info">标题出自炮姐OP, 题图出自机巧少女, 图片仅供参考.</div>
+
+<p>当然不可能立即就碉堡到这种程度↑咯 (´・ω・｀)  </p>
+
+<p>对于 Windows 来说, 安装的 git 会附带一个 gui , 可以从开始菜单, 文件管理器的上下文菜单 或者 <code>git gui</code> 来启动它. 简单起见我们将从这里入手, 对应的命令行指令使用 <code>行内引用</code> 标示, 详细的参数请自行 <code>git help</code>.</p>
+
+<div class="alert alert-success">git 是基于命令行的, 这意味着你可以自己安装甚至开发各种高大上酷炫狂拽屌的 GUI, 比如 <a href="http://git-scm.com/downloads/guis">官方列出的那些</a>. 但本喵在实际使用了几个之后觉得还是原生的那个最诺基亚. </div>
+
+<div class="alert alert-info">首先, 请结合自己的使用习惯准备一个目录专门放各种 project , 通常我们将它称之为 工作空间(Workspace), 后文我们用 ${ws} 指代这个目录</div>
+
+<p>假如你不是在一个本地仓库中启动 Git GUI 的话他会弹出下面这个框框:  <br />
+<img src="./asset/main-1.png" alt="" />  <br />
+意思很明确, 你要新建(<code>init</code>)呢? 还是克隆(<code>clone</code>)呢? 还是打开呢?</p>
+
+<p>这里咱们选克隆, 然后填入以下参数:  </p>
+
+<pre><code>Source Location: https://github.com/scau-sidc/git-tutorial.git  
+Target Location: ${ws}\git-tutorial
+</code></pre>
+
+<div class="alert alert-info">假如你是在一个空目录里启动 Git GUI 并准备进行 clone, 它会默认你想要 clone 到这个目录, 于是不显示第二个输入框</div>
+
+<p>完事之后会变成以下的样子(略微会有些不同, 这种细节不用在意 (･ω･｀)っ彡/ ):  <br />
+<img src="./asset/main-3.png" alt="" />  </p>
+
+<p>红黄绿的很好看对吧? 时间关系我就不画箭头什么的了...  <br />
+<span class="bg-danger">左上角红色的部分</span> 表示 工作副本(Working Copy), 也就是你以传统方式写代码时(aka. 不使用 git ), 打开项目文件夹会看到的文件集合. 仅当你新建/修改/删除文件时, 他们会被列出在这里.  <br />
+<span class="bg-success">左下角绿色的部分</span> 表示 Index(可以理解成缓存区, 目前没有公认的中文翻译), 是你在缓存改动准备用于提交的地方, 关于<b>提交</b>的概念将在后文详述.  <br />
+<abbr title="Working Copy">WC</abbr> 和 Index 中的文件图标是可以点击的(注意我说的是图标= =b). WC 中的文件被点后会进入 Index, 意思是你缓存( <code>stage</code> )这个改动; Index 中的文件被点后会进入 WC, 意思是你放弃缓存这个文件的改动( <code>reset --mixed</code> );  </p>
+
+<p><span class="bg-warning">左上角黄色的部分</span> 表示 差异(diff) 仅在你在点击 WC 或者 Index 中的文件名时(注意我说的是文件名= =b), 这个区域会列出这个文件改动了哪些行.  <br />
+右下角是用来写 <b>提交说明</b> 这个也在后文讲.  </p>
+
+</body>
+</html>
+<!-- This document was created with MarkdownPad, the Markdown editor for Windows (http://markdownpad.com) -->
