@@ -8,8 +8,8 @@
 > @author ![](https://avatars0.githubusercontent.com/u/2285039?v=2&s=20) cuter44  
 > @version 3.0.0-build20141028  
 > @license ![](https://i.creativecommons.org/l/by/3.0/cn/80x15.png) CC 3.0 BY CN  
-> @acknowledge [Github](https://github.com/), [StackEdit](https://stackedit.io/‎), [SCAU-SIDC](https://github.com/scau-sidc)  
-> @source hosted on [Github](https://github.com/scau-sidc/git-tutorial/)    
+> @acknowledge [Github](https://github.com/), [StackEdit](https://stackedit.io/‎), [SCAU-SIDC](https://github.com/scau-sidc), [GitBook-zh_CN](http://gitbook.liuhui998.com/index.html)  
+> @source hosted on [Github:scau-sidc/git-tutorial](https://github.com/scau-sidc/git-tutorial/)    
 
 ## 0.
 
@@ -144,7 +144,7 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 3. `版本库(repository)` > `Explorer Working Copy` > (打开了文件浏览器, 显示的是这个项目的根目录) > 打开 experiment 文件夹
 4. 随便挑个你喜欢的餐馆菜单, 打开, 点个餐然后保存.
 5. 回到 git GUI > `重新扫描(Rescan)` > (看到 WC 里有个很醒目的列表项?) > 将它缓存到 Index > 点 `提交(commit)` > (弹框!! 要先写提交记录才能提交!!)
-6. 焦点到右下方的`提交描述(Commit Message)` > 写点什么, 比如 `${name}点了${dish}` , name=自己的名字, dish=餐的名字. > 再次点 `提交(commit)` > (弹框!! 你是谁!?)
+6. 焦点到右下方的`提交描述(Commit Message)` > 写点什么, 比如 `${自己的名字}点了${餐点的名字}` > 再次点 `提交(commit)` > (弹框!! 你是谁!?)
 7. `编辑(edit)` > `选项(option)` > (弹一个大框出来) > `用户名(User Name)` `Email Address` 理论上可以随便填, 但现在请填写你在Github的id和email.  > `保存` 
    <div class="alert alert-info">细心的小伙伴会发现... Σ(ﾟДﾟ；≡；ﾟдﾟ)咦怎么有两列!? 区别是左边的(仓库配置)仅作用于当前仓库, 右边的(全局配置)作用于所有仓库, 仓库配置高于全局配置.</div>
 8. 再点 `提交(commit)` > (终于交上去了...)
@@ -157,12 +157,17 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 好吧来分步解释:
 
 1. Step 1 不解释
-2. Step 2 创建分支
+2. Step 2 <strong>创建分支</strong>
   * 先来解释下分支的意义: 你可以将分支理解成代码界的平行世界, 每个独立的分支等于一个独立的环境, 里面含有分支前的代码的镜像. 你可以在分支这个封闭空间里随意演绎, 而(在与其它分支合并前)不受到其他分支的干扰, 也不会干扰到别的分支. 
   * 所以为什么要新建分支呢? 正所谓一山不能容二虎, 当两个独立意识同时影响一个世界时, 那个世界...应该会爆掉吧?  
 3. Step 3
-4. ...和 Step 4 模拟了实际工作时对代码的修改
-5. Step 5 (试图)将变更沿着 WC → Index → commit 移动, 就如我们在前文提及的那样.
+4. ...和 Step 4 模拟了实际工作时对代码的<strong>修改</strong>
+5. Step 5 (试图)将变更沿着 WC → Index → commit <strong>缓存</strong>, 就如我们在前文提及的那样.
    当然在写代码的过程中可以进行多次的 WC → Index, 在提交之前, 多个 Index 会以幂等的方式合并, 不过这在大多数情况下没什么意义...
-   注意仔细甄别要提交的内容, 有些会对强迫症患者造成伤害的东西(参见下面的红色框框)是不能交上去的. 这里介绍两种一劳永逸的方法: .gitignore
-   <div class="alert alert-danger">git 不会自动地/定时地提交更改, 你自己也不要试图实现这种功能. 因为版本库都有"提交了就删不掉"的特性, 所以例如写到一半根本过不了编译的源代码啊, 程序运行日志啊, 编译时产生的中间文件啊, 连接数据库的帐号和密码啊, 果照啊(喂!), 小电影啊(喂喂!!)之类的东西要是一不小心提交上去的话...会死人的...</div> 
+   注意仔细甄别要提交的内容, 有些会对强迫症患者造成伤害的东西(参见下面的红色框框)是不能交上去的. 这里介绍两种一劳永逸的方法: [.gitignore 和 excludes](http://gitbook.liuhui998.com/4_1.html)
+   <div class="alert alert-danger">git 不会自动地/定时地提交更改, 你自己也不要试图实现这种功能. 因为版本库都有"提交了就删不掉"的特性, 所以例如写到一半根本过不了编译的源代码啊, 程序运行日志啊, 编译时产生的中间文件啊, 连接数据库的帐号和密码啊, 果照啊(喂!), 小电影啊(喂喂!!)之类的东西要是一不小心提交上去的话...会死人的...</div>
+   <div class="alert alert-danger">"提交了就删不掉"特性在 git 身上并没完全反映, 一个commit在 (没有被任何branch指向) 且 (没有其他commit依赖它) 时可以被垃圾回收掉. 不过, 假如你的果照已经被别人clone到自己的机器上...那就神仙都救不了了...</div>
+6. Step 6 <strong>提交记录</strong> 是一个很重要的东西, 良好的提交记录可以向你的队友介绍你为项目作出的新贡献(而无需强迫他去阅读你的源代码). 一个比较合理的提交记录大概要写成[这样](https://github.com/cuter44/alipay-sdk/commit/02e9680934cde2d930e2a789c04ce9bf024487c5#js-repo-pjax-container), 当然你也可以用中文写, 也可以制定在自己工作组内通行的标准, 只要能起到概括/秒懂的效果就行.
+7. Step 7 不解释, 因为这不是日常.
+8. Step 8 <strong>提交</strong> 会提交到你的 <strong>本地版本库</strong> 的 <strong>当前分支</strong> 上, 通常都不会出什么意外.
+9. Step 9 看着分支树一天天长大是不是很有成就感?
