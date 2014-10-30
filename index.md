@@ -3,21 +3,21 @@
 <strong>如果你看到这个蓝色的小框框</strong> 那就对了. 大家好我是小框框, 肩负着插入和旁白的职责 (｀･ω･)ノ
 </div>
 
-# 超科学的git和Github讲座
+# 超科学的git和Github讲座(凡人)
 
-> @author ![](https://avatars0.githubusercontent.com/u/2285039?v=2&s=20) cuter44  
+> @author ![](https://avatars0.githubusercontent.com/u/2285039?v=2&s=20) [cuter44](https://github.com/cuter44)  
 > @version 3.0.0-prerelease1+build20141030  
 > @license ![](https://i.creativecommons.org/l/by/3.0/cn/80x15.png) CC 3.0 BY CN  
-> @acknowledge [Github](https://github.com/) & [Github Pages](https://pages.github.com/‎), [SCAU-SIDC](https://github.com/scau-sidc), [GitBook-zh_CN](http://gitbook.liuhui998.com/index.html), [MarkLodato/visual-git-guide](https://github.com/MarkLodato/visual-git-guide), [StackEdit](https://stackedit.io/‎),[MarkdownPad2](http://markdownpad.com/), ![](https://avatars0.githubusercontent.com/u/1171407?v=2&s=20) [exoticknight](https://github.com/exoticknight), ![](https://avatars0.githubusercontent.com/u/1331647?v=2&s=20) [FTS](https://github.com/fishtreesugar) 
+> @acknowledge [Github](https://github.com/) & [Github Pages](https://pages.github.com/‎), [SCAU-SIDC](https://github.com/scau-sidc), [GitBook-zh_CN](http://gitbook.liuhui998.com/index.html), [MarkLodato/visual-git-guide](https://github.com/MarkLodato/visual-git-guide), [StackEdit](https://stackedit.io/‎), [MarkdownPad2](http://markdownpad.com/), ![](https://avatars0.githubusercontent.com/u/1171407?v=2&s=20) [exoticknight](https://github.com/exoticknight), ![](https://avatars0.githubusercontent.com/u/1331647?v=2&s=20) [FTS](https://github.com/fishtreesugar) 
 > @source hosted on [Github:scau-sidc/git-tutorial](https://github.com/scau-sidc/git-tutorial/)    
 
 ## 0.
 
-通常来说这个时候应该说下 _git是什么_, 不过为了以行动表达对国产垃圾教材的鄙视, 我决定啥都不写有兴趣的话自己翻[维基](http://zh.wikipedia.org/wiki/Git)去. 现在, 只需要将 git 理解成 **一个可以在多人环境下随时保存和合并源代码的工具** 即可.  
+通常来说这个时候应该说下 _git是什么_, 不过为了为了让这篇教程跟国产垃圾教材有所区别, 这里啥都不写有兴趣的话自己翻[维基](http://zh.wikipedia.org/wiki/Git)去. 现在, 只需要将 git 理解成 **一个可以在多人环境下随时保存和合并源代码的工具** 即可.  
 
 还有 Github, Github 就是依托 git 所建立的代码托管平台/社区, 如果非要做个对比的话它有点像 Google Code 和 SourceForge. 你可以在那里四处乱逛, 寻找自己想要的代码, 吐槽别人; 或者直接脑洞大开自己写个软件出来, 搞不好还会受到路过大神的加持...
 
-然后呢, 我们的目标是, 写一个"萌萌哒的""一个一两个钟能学会, 并且一两个钟之后还想回头看的教程". 在这个教程中我们会以一种实践的态度完成对git的学习, 各位一定要全力地去do哦 ^▽^
+然后呢, 我们的目标是, 写一个"萌萌哒"的"一个一两个钟能学会, 并且一两个钟之后还想回头看的教程". 在这个教程中我们会以一种实践的态度完成对git的学习, 各位一定要全力地去do哦 ^▽^
 
 <div class="alert alert-info">比如这个教程就是托管在Github上面的, 如果有幸能接收到<a href="https://github.com/scau-sidc/git-tutorial/issues">小纸条</a>的话我会很开心的~</div>
 
@@ -53,8 +53,11 @@ http://git-scm.org/
 ![](./asset/setup-7.png)  
 建议这么点, 理由是: 现在除了Microsoft Notepad以外已经没有哪个编辑器不能 handle \r\n 这个问题了, 这样可以避免引入污染.
 
+### on Mac
+(征稿)
+
 ### ...and Github
-这里先说明一点, git是一种对等的分布式仓库系统, aka. 它不是非要一个服务器端才能互相交流. 它支持多种通信协议 包括 `git://`, `ssh://`, `https://`, 甚至`file:///`. 换句话说, 只要能够读写对应的文件, 任何一台机器/存储设备都可以作为远程仓库, 甚至不必在上面安装 git .
+这里先说明一点, git是一种对等的分布式仓库系统, aka. 它不是非要一个服务器端才能互相交流. 它支持多种通信协议 包括 `git://`, `ssh://`, `https://`, 甚至`file:///` 或者 `svn://`. 换句话说, 只要能够读写对应的文件, 任何一台机器/存储设备都可以作为远程仓库, 甚至不必在上面安装 git .
 
 辣么为啥要有 Github 呢? ...这问题谁也说不清楚. 其中一点或许是他实践了开源精神, 将代码作为交流话题, 并使他看得见摸得着, 看到代码推动世界的前进甚至亲手影响世界... <del>起码比刷微博来得有意义.</del>
 不对我要说的不是这个!! ≧□≦"
@@ -62,11 +65,11 @@ http://git-scm.org/
 Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视化之外, 还集成了问题追踪(Issue), 代码速记(Gist), Pull Request 等有效提升程序猿战斗力的工具. 反正...用过都说好...
 
 废话了这么多总该去注册个 Github 帐号吧? 快去!! → https://github.com/join
-然后找到组织→ https://github.com/scau-sidc , 加不进去对吧? 嗯这坑爹的至今都没有站内信功能, 所以你只能私下找老邝或者副主任等老油条把你拉进去了. 
+然后找到组织→ https://github.com/scau-sidc , 加不进去对吧? 嗯这坑爹的至今都没有站内信功能, 所以只能私下找老邝或者副主任等老油条把你拉进去了. 
 
 <div class="alert alert-warning"><strong>注意</strong> 必须提前做好这一步, 因为下一步实验会用到里面的仓库, 不加进来的话就只能干瞪眼了 (.ㅍ_ㅍ)</div>
 
-英文界面不会撸? 可以去看看 [Github官方的新手教程](https://help.github.com/categories/bootcamp/) (←还是英文的), 或者在本教程的稍后部分也会教授一点.
+英文界面不会撸? 可以去看看 [Github官方的新手教程](https://help.github.com/categories/bootcamp/) (←还是英文的), 或者在本教程关于Github的章节会点到一些.
 
 ## 2. 心に刻んだ夢を放て!
 
@@ -78,9 +81,9 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 
 对于 Windows 来说, 安装的 git 会附带一个 gui , 可以从开始菜单, 文件管理器的上下文菜单 或者 `git gui` 来启动它. 简单起见我们将从这里入手, 对应的命令行指令使用 `行内引用` 标示, 详细的参数请自行 `git help`.
 
-<div class="alert alert-success">git 是基于命令行的, 这意味着你可以自己安装甚至开发各种高大上酷炫狂拽屌的 GUI, 比如 <a href="http://git-scm.com/downloads/guis">官方列出的那些</a>. 但本喵在实际使用了几个之后觉得还是原生的那个最诺基亚. </div>
+<div class="alert alert-success">git 是基于命令行的(而且有SDK), 这意味着你可以自己安装甚至开发各种高大上酷炫狂拽屌的 GUI, 比如 <a href="http://git-scm.com/downloads/guis">官方列出的那些</a>. 但本喵在实际使用了几个之后觉得还是原生的那个最诺基亚. </div>
 
-<div class="alert alert-info">首先, 请结合自己的使用习惯准备一个目录专门放各种 project , 通常我们将它称之为 工作空间(Workspace), 后文我们用 ${ws} 指代这个目录</div>
+<div class="alert alert-info">首先, 请结合自己的使用习惯准备一个目录(比如 `F:\project` )专门放各种 project , 通常我们将它称之为 工作空间(Workspace), 后文我们用 ${ws} 指代这个目录</div>
 
 假如你不是在一个本地仓库中启动 Git GUI 的话他会弹出下面这个框框:  
 ![](./asset/gui-1.png)  
@@ -106,7 +109,7 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 
 ## 3. 摩擦! 摩擦!!
 
-嗯...总之先从 菜单栏 的 `版本库(repository)` > `图示所有分支的历史(Visualize all barnches history)`, 然后会弹出一个新的窗口. 这货叫做 gitk , 大概长得像下面的样子: 
+嗯...总之选择 菜单栏 的 `版本库(repository)` > `图示所有分支的历史(Visualize all barnches history)`, 然后会弹出一个新的窗口. 这货叫做 gitk , 大概长得像下面的样子: 
 
 ![](./asset/gitk-1.png)  
 
@@ -118,11 +121,11 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 * <span style="color:#00ff00;">绿色的小圆点 ●</span> 表示缓存区的变更, 仅在缓存区有内容时出现, 且出现在红点和黄点之间.
 * 至于点与点之间的线就不用我解释了吧 →_→
 
-而你写的代码或者别的什么东西就是经过 <span style="color:red;">红点</span>→<span style="color:green;">绿点</span>→<span style="color:yellow;">黄点</span>/<span style="color:blue;">蓝点</span> 这个过程逐步进化成整个版本树的.  
+而你写的代码或者别的什么东西就是经过 <span style="color:red;">红点</span>→<span style="color:00ff00;">绿点</span>→<<span style="color:blue;">蓝点</span> 这个过程逐步进化成整个版本树的.  
 每个提交都有一个唯一的 <strong>SHA1 ID</strong>, 这个值是通过提交内容等一堆因子算出来的, 理论上全球唯一.
 
 * 还有 <span style="background-color:#00ff00; border:1px solid;">绿色的小标签</span> 表示 `分支(branch)` , 其中有些带有 <span style="background-color:#ffd8aa; border:1px solid black;">嫩肉色前缀</span> 的表示 `远程分支(remote branch)`. 两者的区别是前者是由你建立和管理的, 可以随便操作, 后者是别人建立和管理的, 对远程分支的操作需要经过分支主人的同意.  
-* 成熟的项目还会有 <span style="background-color:yellow; border:1px solid;">黄色的小标签</span>, 它叫做 `tag` 或者 `里程碑(milestone)`, 通常会写着类似 <span style="background-color:yellow; border:1px solid black;">1.0.0</span> 的版本号, 嗯这是给大牛发行用的, 小朋友没事不要玩这种危险的东西. (‾w‾ )  
+* 成熟的项目还会有 <span style="background-color:yellow; border:1px solid;">黄色的小标签</span>, 它叫做 `tag` 或者 `里程碑(milestone)`, 通常会写着类似 <span style="background-color:yellow; border:1px solid black;">1.0.0</span> 的版本号, 这是给大牛发行用的, 小朋友没事不要玩这种危险的东西. (‾w‾ )  
 
 那么这个版本树的存在意义是什么呢? 首先请将它想象成一个 有向无环图 (数据结构学得不好的同学请想象成 有向链表 ‾ω‾b ). 那么每一个 ● 提交 都是这个图的节点. 而每一个 <span style="border:1px solid black;">分支/tag</span> 可以想象成指向这个节点的指针/引用. 通过将指针随便乱指(大误), 你可以读出任意一个节点的完整代码然后加以修改. 这就跟打游戏时的S/L大法一样bug. (｡・ω´・)っ  
 不过呢, 如果只是用版本树来开挂那也太low逼了(因为现在随便一个现代编辑器都有按时备份的功能). gitk或者说版本树本身还提供额外的信息, 比如说...看到提交记录里的邮件地址和时间了吗? 合作编程时被人捣乱? No problem! 除了能用 git 回滚之外你还能通过提交记录找到凶手然后冲过去揪住那人的衫领打他个半死...
@@ -135,7 +138,9 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 呃...我们还是来做实验吧! ヾ(*ΦωΦ)ﾉ︵◇  
 
 首先我必需假定你们已经完成上述步骤了, 没完成的按前文 HINT 真的就只能干瞪眼.  
-实验内容依然是毫无新意的订外卖...
+实验内容依然是毫无新意的订外卖...假定我们现在要订外卖, 以前我们会找一个人负责拿着纸笔逐个收集订单. 但这样很累, 而且很容易数多或是数漏. 所以我们这次要用 git 来收集订单, 然后自动向外卖店下订.
+
+<div class="alert alert-danger"><strong>我们只是模拟订外卖而已</strong>, 事实上不会有餐点送到, 请勿抱有任何期待.</div> 
 
 ### 提交(commit)
 
@@ -167,7 +172,7 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
    注意仔细甄别要提交的内容, 有些会对强迫症患者造成伤害的东西(参见下面的红色框框)是不能交上去的. 这里介绍两种一劳永逸的方法: [.gitignore 和 excludes](http://gitbook.liuhui998.com/4_1.html)
    <div class="alert alert-danger">git 不会自动地/定时地提交更改, 你自己也不要试图实现这种功能. 因为版本库都有"提交了就删不掉"的特性, 所以例如写到一半根本过不了编译的源代码啊, 程序运行日志啊, 编译时产生的中间文件啊, 连接数据库的帐号和密码啊, 果照啊(喂!), 小电影啊(喂喂!!)之类的东西要是一不小心提交上去的话...会死人的...</div>
    <div class="alert alert-danger">"提交了就删不掉"特性在 git 身上并没完全反映, 一个commit在 (没有被任何branch指向) 且 (没有其他commit依赖它) 时可以被垃圾回收掉. 不过, 假如你的果照已经被别人clone到自己的机器上...那就神仙都救不了了...</div>
-6. Step 6 <strong>提交记录</strong> 是一个很重要的东西, 良好的提交记录可以向你的队友介绍你为项目作出的新贡献(而无需强迫他去阅读你的源代码). 一个比较合理的提交记录大概要写成[这样](https://github.com/cuter44/alipay-sdk/commit/02e9680934cde2d930e2a789c04ce9bf024487c5#js-repo-pjax-container), 当然你也可以用中文写, 也可以制定在自己工作组内通行的标准, 只要能起到概括/秒懂的效果就行.
+6. Step 6 <strong>提交描述</strong> 是一个很重要的东西, 良好的提交记录可以向你的队友介绍你为项目作出的新贡献(而无需强迫他去阅读你的源代码). 一个比较合理的提交描述大概要写成[这样](https://github.com/cuter44/alipay-sdk/commit/02e9680934cde2d930e2a789c04ce9bf024487c5#js-repo-pjax-container), 当然你也可以用中文写, 也可以制定在自己工作组内通行的标准, 只要能起到概括/秒懂的效果就行.
 7. Step 7 不解释, 因为这不是日常.
 8. Step 8 <strong>提交</strong> 会提交到你的 <strong>本地版本库</strong> 的 <strong>当前分支</strong> 上, 通常都不会出什么意外.
 9. Step 9 看着分支树一天天长大是不是很有成就感?
@@ -200,7 +205,7 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 
 ### 冲突(conflict)和解决冲突
 
-前面说过, 当有人同时修改了同一处时就可能引发冲突. 原因是 git 只能依据个人 commit 的先后顺序和同源性进行自动合并, 如果它发现没有足够信息作出决定时, 就必需要报告并且由人类来解决问题.  
+前面说过, 当有人同时修改了同一处时就可能引发冲突. 原因是 git 只能依据文件所在 commit 的先后顺序和同源性进行自动合并, 如果它发现没有足够信息作出决定时, 就必需要报告并且由人类来解决问题.  
 
 在上一节 上传(push) 中, 大部分同学会看到下面这个框框:
 ![](./asset/gui-push-conflict.png)  
@@ -211,7 +216,10 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 2. 切换到本来要提交的分支, 在当前上下文是 gh-pages.
 3. 然后在下列等价操作中任选其一:
    * `远端(remote)` > `从...获取(fetch from)` > `origin`, `合并(merge)` > `本地合并` > (自动选择了`跟踪分支(Tracking Branch)` 的 `origin/gh-pages`) > `合并(merge)`
-   * (这个只能命令行做) `git pull origin gh-pages`
+   * (这个只能命令行做) 
+
+            git pull origin gh-pages
+
 4. 然后会继续弹出红色的框:
    ![](./asset/git-merge-conflict.png)
    大意是以下文件冲突, 请手动合并.
@@ -236,7 +244,7 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
    <div class="alert alert-info">是不是找不到`edit this file`呢? 因为这是副主任自己配置的wwwwwww</div>
 
 7. 保存之后回到 Git GUI `重新扫描(Rescan)`, 修改内容已经反映到diff上了, 这时可以将 WC 的修改 `stage` 然后 `commit`.
-8. 再次进行 `上传(Push)`
+8. 再次尝试 `上传(Push)`
    <div class="alert alert-info">如果再次上传还是冲突...那只能怪自己手脚慢了(因为别人比你先解决冲突然后把自己的版本覆盖上去了)</div>
 
 以上几乎就是 一个凡人级别的程序猿/媛 日常使用git 所会碰到的全部问题了. git的命令[还有很多](http://git-scm.com/docs), 某些指令例如 `git log`, `git status`, `git branch` 已经隐含在图形界面操作之中; `git rm`, `git mv` 等因为很少用到所以略过; `git stash` `git rebase` 等将在进阶教程(还没写出来)内讲述, 当然也可以独自阅读 reference 和 [Pro Git](http://git-scm.com/book/zh/v1) 学习.
@@ -254,7 +262,7 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 ### Timeline & Dashboard
 登录之后的第一个画面就是 Timeline, 不过通常都没啥好看的, 因为大部分信息都没有价值.
 
-然后是个人主页(比如[副主任的](https://github.com/cuter44))左边是 biography, 自己在 settings 填写. 右侧分了好几块, 从上到下分别是:
+随便戳一个人的名字会去到他的个人主页(比如[副主任的](https://github.com/cuter44))左边是 biography, 自己在 settings 填写. 右侧分了好几块, 从上到下分别是:
  
 * 页签 切换 活动数据, 仓库列表, (那个用户的)timeline , 后两个不解释了.
 * 热门仓库 显示这个用户写的热门内容.
@@ -264,7 +272,7 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 哦对了, 访问别人的主页时右上角会有 <button class="btn btn-success">Follow</button> 按钮, 不解释. 
 
 ### Repository
-当你碰到个你喜欢的 repo, 比如[这篇教程](https://github.com/scau-sidc/git-tutorial), 右上角有三个操作 <button class="btn">Φ Watch</button><button class="btn">★ Star</button><button class="btn">Υ Fork</button> 大致对应于蓝星微博的 收藏 点赞 转发 操作, 更详细的含义请自行在[Github的帮助系统](https://help.github.com/)搜索.
+当遇见喜欢的 repo, 比如[这篇教程](https://github.com/scau-sidc/git-tutorial), 可以使用右上角有三个操作 <button class="btn btn-default">Φ Watch</button><button class="btn btn-default">★ Star</button><button class="btn btn-default">Υ Fork</button>. 它们大致对应于蓝星微博的 收藏 点赞 转发 操作, 更详细的含义请自行在[Github的帮助系统](https://help.github.com/)搜索.
 旁边的数字表示 Watch/Star/Fork 这个仓库的人数, 戳进去可以看具体是谁.
 
 ### Issues
@@ -273,6 +281,7 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 
 ### Wiki
 ![](./asset/github-wiki.png)
+
 如果作者愿意, 会开放并且撰写 Wiki. Wiki 通常用于弥补文档注释的不足, 用来放置用户文档或者系统文档. 不过就实际使用情况来说, 其实不是那么方便...
 <div class="alert alert-info">并且...像副主任这种乐于写文档的业界良心已经不多了...</div>
 
@@ -282,7 +291,75 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 <div class="alert alert-info"><abbr title="Pull Request">PR</abbr> 是 Github 特有的操作.</div>
 
 1. 首先要将自己的分支(在这里是`galin`)上传到 Github.
-2. 然后登入到项目, 会看到下图的提示, 果断戳进去.
+2. 然后登入到项目, 会看到下图的提示, 果断点<button class="btn btn-success">Compare &amp; pull request</button>.
    ![](./asset/github-pre-pr.png)
-3. 然后接下来的操作与 commit 类似, 它要求你给出这个 PR 的标题以及摘要, 所以也要按 commit message, 完成之后按 `Create pull request`.  
-4. 然后这个 PR 就被发送给作者了. 整个页面包含了 你写的 PR 摘要, 包含的 commit, 文件的diff
+3. 然后接下来的操作与 commit 类似, 它要求你给出这个 PR 的提交描述, 所以应该按提交描述的规范认真写, 完成之后按 <button class="btn btn-success">Create pull request</button>.  
+4. (跳转到PR详情页面), 整个页面包含了 你写的 PR 摘要, 包含的 commit, 文件的diff
+
+然后仓库的主人和这个 PR 的责任者会收到邮件. 然后他会检查你的 PR, 从而选择接受或者拒绝你的提交. 到这里 PR 就完成了, 界面看上去会变成题图的样子.
+
+PR 的应用场景包括但不限于以下几种:  
+
+* 从仓库外(别人fork你的)接受提交
+* 同一个工作组中, 有一个大牛做负责人, 大牛规定所有代码要由他过目才能汇集到主分支.
+* 自己给自己发 PR(当备忘使用)
+
+### Github Pages
+就是你正在看这篇教程所依赖的托管服务了, 它会将当前目录的 `gh-pages` 发布成静态网站. 并且支持一种名为 [jekyll](http://jekyllrb.com/) 的脚本语言. 嗯...然后, 你懂的.  Where there is an API, there is a way.
+比如[本工作室的博客](http://scau-sidc.github.io/)就是几只大牛<del>利用业余时间</del>受老邝所迫撸出来的.
+
+### Gist
+![](./asset/gist.png)
+经常会有一些小脚本你想抄起来以后用, 但它本身的规模又没大到需要专门建个仓库去安置它.  
+Gist就是用来满足这种需求的. 随手写, 随时用, 闲得慌了还能"手气不错"一下.
+
+## 6. 某超科学的<del>附录</del>黑历史
+
+### 超科学的提交描述文法
+
+最开始工作室开荒的时候, 大家都不是很懂, 于是提交描述各种乱来...
+
+    整合
+
+↑ 整合了啥没说, 还是要翻代码
+
+有时还会看到些嘲讽向的:
+
+    没修改什么
+
+没修改什么你交个毛线!! (＃°д°)
+
+于是乎, 久病成良医, 慢慢地琢磨出一套标准:  
+
+    登录/激活功能追加完成
+    
+    + Web API, 详情请参见javadoc
+      + /authorize/register
+        ! 现在还不能发邮件, 但是会通过json返回激活之必要参数
+      + /authorize/activate
+      * /authorize/login
+        + 追加了样例
+      * /authorize/logout
+        + 追加了样例
+      * /authorize/getRsaKey
+    + 追加Criteria机能, 详请参考wiki:Criteria
+    + 追加了用于RSA加密的实用工具, 详请参考wiki:服务器部署指南
+
+提交的标题不说了, 很容易就能总结出来.
+然后下面以树状的方式列出更新的内容. 前导的符号表示更新的类型, `+` 表示新增, `*` 表示修改, `-` 表示删除, 这些和 `git diff` 的表示法相容. 需要额外注意的内容则用 `!` 表示.
+
+### 超科学的分支命名法
+有一些约定俗成的命名规则:
+
+* 如果你的仓库是以 `git clone` 拷贝回来的, 那么源仓库会被命名为 origin, 也就是 本源 的意思, 在命令行执行 `git fetch` `git push` 且没有指定远程仓库的名字时, 会默认使用这个.
+* 主分支通常命名为 `master`, 用于存放用于发布的稳定版本. 且作为[软件基线](http://baike.baidu.com/view/2113289.htm)(发布基线).
+* 通常会有一个开发分支 `develop`, 用于收集和积淀开发过程中的功能性更新, 且作为软件基线(开发基线). 通常这两个基线的每一个提交都要求是完备的, aka. 能够正确编译且通过全部测试用例(不过工作室一直以来都没测试管理, 所以说了也白说...).
+* 然后...没了, 更规范的实践推荐看这个<a href="http://nvie.com/posts/a-successful-git-branching-model/"><i>A successful Git branching model</i></a> By <i>Vincent Driessen</i> (<a href="http://segmentfault.com/a/1190000000434973"><i>git分支最佳实践</i></a> 由 SegmentFault 翻译)   
+
+--------------
+
+后记
+
+妈蛋这又不是轻小说写毛线后记(╯‵д′)╯︵┻━┻
+进阶版再说吧...
+
