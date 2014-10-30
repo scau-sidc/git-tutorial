@@ -6,9 +6,9 @@
 # 超科学的git和Github讲座
 
 > @author ![](https://avatars0.githubusercontent.com/u/2285039?v=2&s=20) cuter44  
-> @version 3.0.0-build20141028  
+> @version 3.0.0-prerelease1+build20141030  
 > @license ![](https://i.creativecommons.org/l/by/3.0/cn/80x15.png) CC 3.0 BY CN  
-> @acknowledge [Github](https://github.com/), [StackEdit](https://stackedit.io/‎), [SCAU-SIDC](https://github.com/scau-sidc), [GitBook-zh_CN](http://gitbook.liuhui998.com/index.html)  
+> @acknowledge [Github](https://github.com/) & [Github Pages](https://pages.github.com/‎), [SCAU-SIDC](https://github.com/scau-sidc), [GitBook-zh_CN](http://gitbook.liuhui998.com/index.html), [MarkLodato/visual-git-guide](https://github.com/MarkLodato/visual-git-guide), [StackEdit](https://stackedit.io/‎),[MarkdownPad2](http://markdownpad.com/), ![](https://avatars0.githubusercontent.com/u/1171407?v=2&s=20) [exoticknight](https://github.com/exoticknight), ![](https://avatars0.githubusercontent.com/u/1331647?v=2&s=20) [FTS](https://github.com/fishtreesugar) 
 > @source hosted on [Github:scau-sidc/git-tutorial](https://github.com/scau-sidc/git-tutorial/)    
 
 ## 0.
@@ -179,6 +179,7 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 可能会有分叉, 可能会没有, 但总之以你名字命名的分支和`gh-pages`分支已经不在同一个提交上了.
 
 1. Git GUI > `分支(branch)` > `Checkout` > `本地分支(Local branch)` > `gh-pages`
+   <div class="alert alert-info">这里再顺带一提 `检出(checkout)` 指令, 他允许你读取任意branch/commit的内容, 大致相当于游戏的 Load. 本来在上一节新建分支的下一步是要进行一次checkout操作以切换分支的, 但新建时下面有个默认勾选的`在创建后Checkout`, 所以 git 就自动切换分支了.</div>
 2. (界面回到 Git GUI) > `合并(merge)` > `本地合并(Local Merge)` > 选择你自己的分支 > `merge`
 
 在这个教程的情景中, 这个操作应该会顺利完成. 之后你的版本树看起来大概会像这样:  
@@ -194,11 +195,94 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 2. 然后会弹框, 报告操作进度, 可能会要求你输入你在 Github 的帐号和密码.
    <div class="alert alert-success">也可以让 git 记住密码, <a href="http://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-File.html">https下使用.netrc</a>, <a href="http://git-scm.com/book/zh/v1/服务器上的-Git-生成-SSH-公钥">ssh下使用ssh公钥登录</a></div>
 
-好了危险的时候来了. 大多数情况下 git 可以自动地合并两个人写的代码, except **你们修改了同一个文件的同一行**. 然后为了让你们学习到怎么解决冲突, 在设计的实验中会故意触发冲突 ╱/( ◕‿‿◕ )\╲
+好了麻烦的时候来了. 大多数情况下 git 可以自动地合并两个人写的代码, except **你们修改了同一个文件的同一行**. 然后为了让你们学习到怎么解决冲突, 在设计的实验中会故意触发冲突 ╱/( ◕‿‿◕ )\╲
 <div class="alert alert-info">每个餐馆的第一个提交者不会碰到冲突, 这些同学可以移步到队友的机器前, 对照接下来的步骤学习怎么解决冲突.</div>
 
 ### 冲突(conflict)和解决冲突
 
 前面说过, 当有人同时修改了同一处时就可能引发冲突. 原因是 git 只能依据个人 commit 的先后顺序和同源性进行自动合并, 如果它发现没有足够信息作出决定时, 就必需要报告并且由人类来解决问题.  
 
-首先继续看版本树, 它现在大概是这个样子:
+在上一节 上传(push) 中, 大部分同学会看到下面这个框框:
+![](./asset/gui-push-conflict.png)  
+大体意思是有人先于你提交, 并且无法自动合并, 你要如此这般才能顺利提交更改.
+
+1. 使用 `commit` 或者 `stash`(将在进阶篇讲授) 保存你当前的 WC.
+   <div class="alert alert-danger">这步切记要仔细完成. 尤其要注意提交尚未纳入版本管理的文件, 如果别人的提交中有同名文件, 属于你的那个可能会被覆盖掉! (×﹏×") </div>  
+2. 切换到本来要提交的分支, 在当前上下文是 gh-pages.
+3. 然后在下列等价操作中任选其一:
+   * `远端(remote)` > `从...获取(fetch from)` > `origin`, `合并(merge)` > `本地合并` > (自动选择了`跟踪分支(Tracking Branch)` 的 `origin/gh-pages`) > `合并(merge)`
+   * (这个只能命令行做) `git pull origin gh-pages`
+4. 然后会继续弹出红色的框:
+   ![](./asset/git-merge-conflict.png)
+   大意是以下文件冲突, 请手动合并.
+5. 回到 Git GUI, 大概显示为以下样子:
+   ![](./asset/gui-conflict.png)
+   左侧用特殊的图标显示出有冲突的文件, 点击它之后会显示出冲突详情, 重点是这里:
+
+           <<<<<<< HEAD
+          + 
+          +5+0    醇香咖啡                   ¥8
+           =======
+         + 
+         + kuangyj    焦糖拿铁                   ¥10
+           >>>>>>> github/gh-pages
+   这是 git 用于标记冲突的语法, 七个左尖括号到七个等号之间是当前分支的内容, 七个等号到七个右尖括号之间是待合并分支的内容.
+6. 然后, `工具(Tools)` > `edit this file` 打开这个文件编辑. 因为我们正在"订外卖", 所以两条都要保留下来, 最后变成这样:
+   
+        (空行) 
+        5+0    醇香咖啡                   ¥8
+        kuangyj    焦糖拿铁                   ¥10
+
+   <div class="alert alert-info">是不是找不到`edit this file`呢? 因为这是副主任自己配置的wwwwwww</div>
+
+7. 保存之后回到 Git GUI `重新扫描(Rescan)`, 修改内容已经反映到diff上了, 这时可以将 WC 的修改 `stage` 然后 `commit`.
+8. 再次进行 `上传(Push)`
+   <div class="alert alert-info">如果再次上传还是冲突...那只能怪自己手脚慢了(因为别人比你先解决冲突然后把自己的版本覆盖上去了)</div>
+
+以上几乎就是 一个凡人级别的程序猿/媛 日常使用git 所会碰到的全部问题了. git的命令[还有很多](http://git-scm.com/docs), 某些指令例如 `git log`, `git status`, `git branch` 已经隐含在图形界面操作之中; `git rm`, `git mv` 等因为很少用到所以略过; `git stash` `git rebase` 等将在进阶教程(还没写出来)内讲述, 当然也可以独自阅读 reference 和 [Pro Git](http://git-scm.com/book/zh/v1) 学习.
+
+## 5. Build software better, together.
+
+<a href="https://octodex.github.com/collabocats/"><img src="https://octodex.github.com/images/collabocats.jpg" width="240px"></a>
+
+嗯, Github 的口号...
+很难定义 Github 是什么, 他不是单纯的软件仓库, 不是社交网络, 不是协作工具, 虽然它样样都占点边.
+围绕 git 的版本管理功能, 它扩展了很多好玩的功能, 使写代码变成一件相当有趣的事.(蓝星人就知道刷微博...唉)
+
+好吧正题...
+
+### Timeline & Dashboard
+登录之后的第一个画面就是 Timeline, 不过通常都没啥好看的, 因为大部分信息都没有价值.
+
+然后是个人主页(比如[副主任的](https://github.com/cuter44))左边是 biography, 自己在 settings 填写. 右侧分了好几块, 从上到下分别是:
+ 
+* 页签 切换 活动数据, 仓库列表, (那个用户的)timeline , 后两个不解释了.
+* 热门仓库 显示这个用户写的热门内容.
+* 贡献 显示活跃度, 某些人会喜欢把那个列表刷到全绿... 不过如果[参拜过 Linus 大神的 Github 帐号](https://github.com/torvalds), 呵呵.
+* 然后戳上面的小格子下面会列出具体的内容.
+
+哦对了, 访问别人的主页时右上角会有 <button class="btn btn-success">Follow</button> 按钮, 不解释. 
+
+### Repository
+当你碰到个你喜欢的 repo, 比如[这篇教程](https://github.com/scau-sidc/git-tutorial), 右上角有三个操作 <button class="btn">Φ Watch</button><button class="btn">★ Star</button><button class="btn">Υ Fork</button> 大致对应于蓝星微博的 收藏 点赞 转发 操作, 更详细的含义请自行在[Github的帮助系统](https://help.github.com/)搜索.
+旁边的数字表示 Watch/Star/Fork 这个仓库的人数, 戳进去可以看具体是谁.
+
+### Issues
+![](./asset/github-issue.png)
+每个仓库都会附带一个轻量级的跟踪系统, 可以用于 你发现bug并且想报告给作者/向作者提问提建议/请求队友协助(比如要求新的API)/记录自己的待办事项, 用法和 teamibition 的任务版大同小异, 这里就不再展开说了.
+
+### Wiki
+![](./asset/github-wiki.png)
+如果作者愿意, 会开放并且撰写 Wiki. Wiki 通常用于弥补文档注释的不足, 用来放置用户文档或者系统文档. 不过就实际使用情况来说, 其实不是那么方便...
+<div class="alert alert-info">并且...像副主任这种乐于写文档的业界良心已经不多了...</div>
+
+### Pull Request
+![](./asset/github-pr.png)
+前面我们教了上传(push), 能使用 push 的前提条件是你对远程仓库有写权限. 举个栗子, 刚刚我们用于订外卖的仓库, 只所以强调要提前加入组织就是为了授予对仓库的写权限. 如果没有写权限而又想要往仓库推送内容的话, 就应该使用 Pull Request 操作.
+<div class="alert alert-info"><abbr title="Pull Request">PR</abbr> 是 Github 特有的操作.</div>
+
+1. 首先要将自己的分支(在这里是`galin`)上传到 Github.
+2. 然后登入到项目, 会看到下图的提示, 果断戳进去.
+   ![](./asset/github-pre-pr.png)
+3. 然后接下来的操作与 commit 类似, 它要求你给出这个 PR 的标题以及摘要, 所以也要按 commit message, 完成之后按 `Create pull request`.  
+4. 然后这个 PR 就被发送给作者了. 整个页面包含了 你写的 PR 摘要, 包含的 commit, 文件的diff
