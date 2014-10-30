@@ -121,7 +121,7 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 而你写的代码或者别的什么东西就是经过 <span style="color:red;">红点</span>→<span style="color:green;">绿点</span>→<span style="color:yellow;">黄点</span>/<span style="color:blue;">蓝点</span> 这个过程逐步进化成整个版本树的.  
 每个提交都有一个唯一的 <strong>SHA1 ID</strong>, 这个值是通过提交内容等一堆因子算出来的, 理论上全球唯一.
 
-* 还有 <span style="background-color:#00ff00; border:1px solid;">绿色的小标签</span> 表示 `分支(branch)` , 其中有些带有 <span style="background-color:#ffd8aa; border:1px solid;">嫩肉色前缀</span> 的表示 `远程分支(remote branch)`. 两者的区别是前者是由你建立和管理的, 可以随便操作, 后者是别人建立和管理的, 对远程分支的操作需要经过分支主人的同意.  
+* 还有 <span style="background-color:#00ff00; border:1px solid;">绿色的小标签</span> 表示 `分支(branch)` , 其中有些带有 <span style="background-color:#ffd8aa; border:1px solid black;">嫩肉色前缀</span> 的表示 `远程分支(remote branch)`. 两者的区别是前者是由你建立和管理的, 可以随便操作, 后者是别人建立和管理的, 对远程分支的操作需要经过分支主人的同意.  
 * 成熟的项目还会有 <span style="background-color:yellow; border:1px solid;">黄色的小标签</span>, 它叫做 `tag` 或者 `里程碑(milestone)`, 通常会写着类似 <span style="background-color:yellow; border:1px solid black;">1.0.0</span> 的版本号, 嗯这是给大牛发行用的, 小朋友没事不要玩这种危险的东西. (‾w‾ )  
 
 那么这个版本树的存在意义是什么呢? 首先请将它想象成一个 有向无环图 (数据结构学得不好的同学请想象成 有向链表 ‾ω‾b ). 那么每一个 ● 提交 都是这个图的节点. 而每一个 <span style="border:1px solid black;">分支/tag</span> 可以想象成指向这个节点的指针/引用. 通过将指针随便乱指(大误), 你可以读出任意一个节点的完整代码然后加以修改. 这就跟打游戏时的S/L大法一样bug. (｡・ω´・)っ  
@@ -137,7 +137,7 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 首先我必需假定你们已经完成上述步骤了, 没完成的按前文 HINT 真的就只能干瞪眼.  
 实验内容依然是毫无新意的订外卖...
 
-### 提交
+### 提交(commit)
 
 1. git gui 打开前文拷贝回来的仓库.
 2. `分支(branch)` > `新建(create...)` > (名字里面随便输点什么, 我建议用你们的Github id, 这样可以避免重复, 其余默认即可). > 新建
@@ -171,3 +171,34 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 7. Step 7 不解释, 因为这不是日常.
 8. Step 8 <strong>提交</strong> 会提交到你的 <strong>本地版本库</strong> 的 <strong>当前分支</strong> 上, 通常都不会出什么意外.
 9. Step 9 看着分支树一天天长大是不是很有成就感?
+
+### 合并(merge)
+
+在上面的最后一步时你看到的分支树大概会像这个样子:  
+![](./asset/gitk-2-pre-merge.png)  
+可能会有分叉, 可能会没有, 但总之以你名字命名的分支和`gh-pages`分支已经不在同一个提交上了.
+
+1. Git GUI > `分支(branch)` > `Checkout` > `本地分支(Local branch)` > `gh-pages`
+2. (界面回到 Git GUI) > `合并(merge)` > `本地合并(Local Merge)` > 选择你自己的分支 > `merge`
+
+在这个教程的情景中, 这个操作应该会顺利完成. 之后你的版本树看起来大概会像这样:  
+![](./asset/gitk-3-post-merge.png)  
+可能会出现两条线, 也可能不会, 这取决于具体情境.
+
+### 上传(push)
+
+到目前为止, 这些改动都是在你本地完成的, 表示服务器端的仓库的 <span style="background-color:#ffd8aa; border:1px solid black;">remotes/origin</span> 还停留在比较早的阶段. git 用于将本地更新发往远程仓库的操作名为 `上传(push)`.  
+<div class="alert alert-info">作为一个<del>死理性派</del>强迫症, 本喵翻遍字典都没找到将push解释成上传的义项. 不过 git 官方的 i18n 这么译, 也就只好这样了...</div> 
+
+1. Git GUI > `远端(remote)` > `上传(push)` > 选择 `gh-pages` > `上传(push)`
+2. 然后会弹框, 报告操作进度, 可能会要求你输入你在 Github 的帐号和密码.
+   <div class="alert alert-success">也可以让 git 记住密码, <a href="http://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-File.html">https下使用.netrc</a>, <a href="http://git-scm.com/book/zh/v1/服务器上的-Git-生成-SSH-公钥">ssh下使用ssh公钥登录</a></div>
+
+好了危险的时候来了. 大多数情况下 git 可以自动地合并两个人写的代码, except **你们修改了同一个文件的同一行**. 然后为了让你们学习到怎么解决冲突, 在设计的实验中会故意触发冲突 ╱/( ◕‿‿◕ )\╲
+<div class="alert alert-info">每个餐馆的第一个提交者不会碰到冲突, 这些同学可以移步到队友的机器前, 对照接下来的步骤学习怎么解决冲突.</div>
+
+### 冲突(conflict)和解决冲突
+
+前面说过, 当有人同时修改了同一处时就可能引发冲突. 原因是 git 只能依据个人 commit 的先后顺序和同源性进行自动合并, 如果它发现没有足够信息作出决定时, 就必需要报告并且由人类来解决问题.  
+
+首先继续看版本树, 它现在大概是这个样子:
