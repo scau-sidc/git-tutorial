@@ -279,6 +279,10 @@ Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视�
 ### Pull Request
 ![](./asset/github-pr.png)
 前面我们教了上传(push), 能使用 push 的前提条件是你对远程仓库有写权限. 举个栗子, 刚刚我们用于订外卖的仓库, 只所以强调要提前加入组织就是为了授予对仓库的写权限. 如果没有写权限而又想要往仓库推送内容的话, 就应该使用 Pull Request 操作.
-<div class="alert alert-info">PR 是 Github 特有的操作.</div>
+<div class="alert alert-info"><abbr title="Pull Request">PR</abbr> 是 Github 特有的操作.</div>
 
 1. 首先要将自己的分支(在这里是`galin`)上传到 Github.
+2. 然后登入到项目, 会看到下图的提示, 果断戳进去.
+   ![](./asset/github-pre-pr.png)
+3. 然后接下来的操作与 commit 类似, 它要求你给出这个 PR 的标题以及摘要, 所以也要按 commit message, 完成之后按 `Create pull request`.  
+4. 然后这个 PR 就被发送给作者了. 整个页面包含了 你写的 PR 摘要, 包含的 commit, 文件的diff
