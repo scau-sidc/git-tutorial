@@ -24,3 +24,4 @@
 kuangyj    焦糖拿铁                   ¥10
 xiaoxiong  摩卡咖啡 ¥9
 david 仙草奶绿                   ¥7
+david 仙草奶绿                   ¥5
