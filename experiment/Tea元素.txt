@@ -22,4 +22,11 @@
  
 5+0    醇香咖啡                   ¥8
 kuangyj    焦糖拿铁                   ¥10
+
 xuzhifan 仙草奶茶  ￥10
+
+cWatery 仙草奶茶 ¥5
+
+xiaoxiong  摩卡咖啡 ¥9
+
+david 仙草奶绿                   ¥7
