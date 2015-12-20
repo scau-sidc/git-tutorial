@@ -1,26 +1,27 @@
-<link rel="stylesheet" href="./bootstrap-3.2.0-dist/css/bootstrap.min.css">
-<style type="text/css"> .alert-normal {color: #404040; background-color: #f5f5f5; border-color: #cccccc; } </style>
-<script src="./jquery/jquery.1.11.1.min.js"></script>
-<script src="./bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
+<div class="hidden">如果你看到这行字, 说明打开的方式不太对. 我们墙裂建议你观看<a href="http://scau-sidc.github.io/git-tutorial/">用 Bootstrap 渲染的页面</a></div>
+<div class="alert alert-info">
+<strong>如果你看到这个蓝色的小框框</strong> 那就对了. 大家好我是小框框, 肩负着插入和旁白的职责 (｀･ω･)ノ
+</div>
 
-# 超科学的 git 和 Github 讲座(その１)
+# 超科学的git和Github讲座(凡人)
 
-> @contributors [github://scau-sidc/git-tutorial/contributors](https://github.com/scau-sidc/git-tutorial/graphs/contributors)  
-> @version 4.0.0-build20151215  
+> @author ![](https://avatars0.githubusercontent.com/u/2285039?v=2&s=20) [cuter44](https://github.com/cuter44)  
+> @version 3.0.0-prerelease1+build20141030  
 > @license ![](https://i.creativecommons.org/l/by/3.0/cn/80x15.png) CC 3.0 BY CN  
-> @source [github://scau-sidc/git-tutorial](https://github.com/scau-sidc/git-tutorial/)    
+> @acknowledge [Github](https://github.com/) & [Github Pages](https://pages.github.com/‎), [SCAU-SIDC](https://github.com/scau-sidc), [GitBook-zh_CN](http://gitbook.liuhui998.com/index.html), [MarkLodato/visual-git-guide](https://github.com/MarkLodato/visual-git-guide), [StackEdit](https://stackedit.io/‎), [MarkdownPad2](http://markdownpad.com/), ![](https://avatars0.githubusercontent.com/u/1171407?v=2&s=20) [exoticknight](https://github.com/exoticknight), ![](https://avatars0.githubusercontent.com/u/1331647?v=2&s=20) [FTS](https://github.com/fishtreesugar) 
+> @source hosted on [Github:scau-sidc/git-tutorial](https://github.com/scau-sidc/git-tutorial/)    
 
-## 0. What is ...
-通常来说这个时候应该说下 _git是什么_, 不过为了让这篇教程跟国产垃圾教材有所区别, 这里不会展开. 有兴趣的同学请自行[维基](http://zh.wikipedia.org/wiki/Git).   
-现在, 只需要将 git 理解成 **一个可以在多人环境下随时保存和合并源代码的工具** 即可.  
+## 0.
 
-Github 就是依托 git 所建立的代码托管平台/社区, 你可以在那里四处乱逛, 寻找自己想要的代码, 吐槽别人; 或者直接脑洞大开自己写个软件出来, 搞不好还会受到路过大神的加持.
-不过对于英语成绩不好的同学来说, Github 是个噩梦. 在本篇教程中将只涉及 Github 的仓库托管功能. 因此只需要知道 `Sign up`, `Sign in`, `Create Repository` 这几个词组的中文意思即可.
-提供类 Github 服务的供应商还有很多, 比如 [OSChina Git](https://git.oschina.net)(简中/EN), [GitCafe](https://gitcafe.com/)(简中/繁中/EN), [bitbucket](http://bitbucket.org/)(EN). 但在此我们建议使用 Github, 一个充分理由是 git 的作者 [Linus Torvalds 使用 Github](https://github.com/torvalds).  
+通常来说这个时候应该说下 _git是什么_, 不过为了为了让这篇教程跟国产垃圾教材有所区别, 这里啥都不写有兴趣的话自己翻[维基](http://zh.wikipedia.org/wiki/Git)去. 现在, 只需要将 git 理解成 **一个可以在多人环境下随时保存和合并源代码的工具** 即可.  
 
-<div class="alert alert-normal">千万不要问 <i>Linus Torvalds 是什么</i> , 老邝保证不打死你.</div>
+还有 Github, Github 就是依托 git 所建立的代码托管平台/社区, 如果非要做个对比的话它有点像 Google Code 和 SourceForge. 你可以在那里四处乱逛, 寻找自己想要的代码, 吐槽别人; 或者直接脑洞大开自己写个软件出来, 搞不好还会受到路过大神的加持...
 
-<div class="alert alert-info">这里顺便推荐一部影片, <i>遇见未来 Next</i> (IMDb:<a href="http://www.imdb.com/title/tt0435705/">tt0435705</a> | <a href="http://movie.douban.com/subject/1793909/">豆瓣↗</a>). 凯奇大叔演的. 主角具有对剧情分支的并行推衍能力, 通过分支和剪枝避免自己领便当, 其工作原理和 git 类似. 可以作为本教程的参考.</div>
+然后呢, 我们的目标是, 写一个"萌萌哒"的"一个一两个钟能学会, 并且一两个钟之后还想回头看的教程". 在这个教程中我们会以一种实践的态度完成对git的学习, 各位一定要全力地去do哦 ^▽^
+
+<div class="alert alert-info">比如这个教程就是托管在Github上面的, 如果有幸能接收到<a href="https://github.com/scau-sidc/git-tutorial/issues">小纸条</a>的话我会很开心的~</div>
+
+<div class="alert alert-info">啊对了这里顺便推荐一个烂片, <i>遇见未来 Next</i> (IMDb:<a href="http://www.imdb.com/title/tt0435705/">tt0435705</a> | <a href="http://movie.douban.com/subject/1793909/">豆瓣↗</a>). 凯奇大叔演的. 据说只有程序猿能看懂, 当中演示了分支推衍和回滚等(蓝星人看了会Σ(°д°|||) 程序猿看了会(.ㅍ_ㅍ)的)烂梗, 而这些基本可以类比于 git 的原理模型. <del>有兴趣</del>实在闲得慌的可以去观赏下.</div>
 
 ## 1. 首先, 我们需要一个工具
 
@@ -33,116 +34,99 @@ Github 就是依托 git 所建立的代码托管平台/社区, 你可以在那�
 	apt-get install git
 
 , 或者等价的包管理器指令(yum, pacman 等)
-, 或者通过源码编译安装(此处省略1000字)
 
 ### on Windows
+这里是适合普通人的操作步骤:  
 
-对于蓝星人来说通常如下展开:  
+作为一个有强烈<del>责任心</del>精神洁癖的软件攻城狮, 我会墙裂推荐从官方软件源获得软件:
 
 http://git-scm.org/
 
-然后按蓝星人的风俗一路 Next 下去, 但副主任建议如下的加点方式: 
+然后按蓝星人的风俗一路 Next 下去, 除了这些点: 
 
 ![](./asset/setup-4.png)  
+建议这么点, 理由是我有精神洁癖   
 
 ![](./asset/setup-6.png)  
+建议这么点, 理由是这样对蓝星人友好  
 
-![](./asset/setup-7.png)
-
-理由是...不想解释.  
+![](./asset/setup-7.png)  
+建议这么点, 理由是: 现在除了Microsoft Notepad以外已经没有哪个编辑器不能 handle \r\n 这个问题了, 这样可以避免引入污染.
 
 ### on Mac
-(这个请去请教部长)
+(征稿)
 
-### as of Github
+### ...and Github
+这里先说明一点, git是一种对等的分布式仓库系统, i.e. 它不是非要一个服务器端才能互相交流. 它支持多种通信协议 包括 `git://`, `ssh://`, `https://`, 甚至`file:///` 或者 `svn://`. 换句话说, 只要能够读写对应的文件, 任何一台机器/存储设备都可以作为远程仓库, 甚至不必在上面安装 git .
 
-再重复一次, 在本教程中只使用 Github 的仓库托管功能. Github 的其余黑科技将在附录部分解说.
+辣么为啥要有 Github 呢? ...这问题谁也说不清楚. 其中一点或许是他实践了开源精神, 将代码作为交流话题, 并使他看得见摸得着, 看到代码推动世界的前进甚至亲手影响世界... <del>起码比刷微博来得有意义.</del>
+不对我要说的不是这个!! ≧□≦"
 
-什么是仓库托管呢? 举个栗子,
+Github 除了有作为 git 的远程仓库, 提供代码可视化, 版本可视化之外, 还集成了问题追踪(Issue), 代码速记(Gist), Pull Request 等有效提升程序猿战斗力的工具. 反正...用过都说好...
 
-在使用 git 之前你们写的代码都存在自己的硬盘里:
-老师: (夺命追魂call)"你程序写好了? 拿来我看看"
-你: "哦"(找U盘, 复制粘贴, 千里迢迢呈送老师台启)
-(翌日)
-老师: (夺命追魂call)"同志快醒醒你还有几行代码有bug没改"
-你: "哦"(翻箱倒柜找另一个U盘, 复制粘贴, 千里迢迢呈送老师台启)
-(Repeat)
+废话了这么多总该去注册个 Github 帐号吧? 快去!! → https://github.com/join
+然后找到组织→ https://github.com/scau-sidc , 加不进去对吧? 嗯这坑爹的至今都没有站内信功能, 所以只能私下找老邝或者副主任等老油条把你拉进去了. 
 
-通过仓库托管将项目/代码放置在 Github 后:
-老师: (夺命追魂call)"你程序写好了? 拿来我看看"
-你: "https://github.com/foo/bar"
-老师: "..."
-(翌日)
-老师: (夺命追魂call)"同志快醒醒你还有几行代码有bug没改"
-你: "哦"(更改, 提交, 上传)"改完了. 昨天那个地址."
-老师: "Good..."
+<div class="alert alert-warning"><strong>注意</strong> 必须提前做好这一步, 因为下一步实验会用到里面的仓库, 不加进来的话就只能干瞪眼了 (.ㅍ_ㅍ)</div>
 
-<div class="alert alert-info">比如本教程的源代码就托管在 https://github.com/scau-sidc/git-tutorial . 任何人都可以自助取得.</div>
-
-之后的实验需要用到 Github, <strong>请务必注册一个账号</strong>.
-
-<div class="alert alert-info"> [github://scau-sidc](https://github.com/scau-sidc) 是 935 驻 Github 的开发者组织, 里面有很多老鬼在划水. 可以在注册完后将你的 id 发给老邝要求加入.</div>
-
-[Github官方的新手教程](https://help.github.com/categories/bootcamp/)
+英文界面不会撸? 可以去看看 [Github官方的新手教程](https://help.github.com/categories/bootcamp/) (←还是英文的), 或者在本教程关于Github的章节会点到一些.
 
 ## 2. 心に刻んだ夢を放て!
 
 ![](./asset/72f5bfea-s.jpg)
 
-<div class="alert alert-normal">标题出自炮姐OP, 题图出自机巧少女, 图片仅供参考.</div>
+<div class="alert alert-info">标题出自炮姐OP, 题图出自机巧少女, 图片仅供参考.</div>
 
 当然不可能立即就碉堡到这种程度↑咯 (´・ω・｀)  
 
-对于 Windows 来说, 安装 msys-git 会附赠一个 gui , 可以通过开始菜单/文件管理器的上下文菜单/`git gui` 指令来启动它.
+对于 Windows 来说, 安装的 git 会附带一个 gui , 可以从开始菜单, 文件管理器的上下文菜单 或者 `git gui` 来启动它. 简单起见我们将从这里入手, 对应的命令行指令使用 `行内引用` 标示, 详细的参数请自行 `git help`.
 
-<div class="alert alert-warning">但其实老鬼们都直接用命令行, 为了能和谐装逼我们会在行文中标注对应的指令.</div>
+<div class="alert alert-success">git 是基于命令行的(而且有SDK), 这意味着你可以自己安装甚至开发各种高大上酷炫狂拽屌的 GUI, 比如 <a href="http://git-scm.com/downloads/guis">官方列出的那些</a>. 但本喵在实际使用了几个之后觉得还是原生的那个最诺基亚. </div>
 
-<div class="alert alert-info">你可以通过其它第三方图形界面使用 git, 比如 <a href="http://git-scm.com/downloads/guis">官方列出的这些</a>. 但副主任在实际试用后觉得还是附赠的那个最诺基亚. </div>
+<div class="alert alert-info">首先, 请结合自己的使用习惯准备一个目录(比如 `F:\project` )专门放各种 project , 通常我们将它称之为 工作空间(Workspace), 后文我们用 ${ws} 指代这个目录</div>
 
-<div class="alert alert-info">在 Android 上也有可用的 git 工具, 但至今为止未发现哪个特别好用的. iOS 方面请咨询部长.</div>
-
-总之我们已经启动 git 了, 大多数情况下会弹出下面这个东东:  
+假如你不是在一个本地仓库中启动 Git GUI 的话他会弹出下面这个框框:  
 ![](./asset/gui-1.png)  
 意思很明确, 你要新建(`init`)呢? 还是克隆(`clone`)呢? 还是打开呢?
 
-今年我们选 创建新的版本库, 在随后的对话框中在你喜欢的位置弄一个空文件夹出来, 并且选择它.
+这里咱们选克隆, 然后填入以下参数:  
 
-<div class="alert alert-normal">这里我们以 F:\Project\git-tutorial\ 为例</div>
+	Source Location: https://github.com/scau-sidc/git-tutorial.git  
+	Target Location: ${ws}\git-tutorial
 
-完成后会变成以下的样子(略微会有些不同, 不要在意这些细节 (･ω･｀)っ彡/ ):  
+<div class="alert alert-info">假如你是在一个空目录里启动 Git GUI 并准备进行 clone, 它会默认你想要 clone 到这个目录, 于是不显示第二个输入框</div>
+
+完事之后会变成以下的样子(略微会有些不同, 这种细节不用在意 (･ω･｀)っ彡/ ):  
 ![](./asset/gui-3.png)  
 
-解说:  
-<span class="bg-danger">左上角红色的部分</span> 表示 工作目录(Working Copy), 也就是你以传统方式写代码时(i.e. 不使用 git ), 打开项目文件夹时看到的文件集合. 仅当你新建/修改/删除文件时, 他们会被列出在这里.  
-<span class="bg-success">左下角绿色的部分</span> 表示 Index(或称为 缓存区, 目前没有公认的中文翻译), 是你在缓存改动准备用于提交的地方, 关于<b>提交</b>的概念将在后文详述.  
-<abbr title="Working Copy">WC</abbr> 和 Index 中的文件图标是可以点击的(注意我说的是图标= =b). WC 中的文件被点后会进入 Index, 表示需要缓存( `stage` )这个改动; Index 中的文件被点后会进入 WC, 表示放弃缓存这个文件的改动( `reset --mixed` );  
-<span class="bg-warning">右上角黄色的部分</span> 表示 差异(diff) 仅在你在点击 WC 或者 Index 中的文件名时(注意我说的是文件名= =b), 这个区域会列出这个文件改动了哪些地方.
+红黄绿的很好看对吧? 时间关系我就不画箭头什么的了...  
+<span class="bg-danger">左上角红色的部分</span> 表示 工作目录(Working Copy), 也就是你以传统方式写代码时(i.e. 不使用 git ), 打开项目文件夹会看到的文件集合. 仅当你新建/修改/删除文件时, 他们会被列出在这里.  
+<span class="bg-success">左下角绿色的部分</span> 表示 Index(可以理解成缓存区, 目前没有公认的中文翻译), 是你在缓存改动准备用于提交的地方, 关于<b>提交</b>的概念将在后文详述.  
+<abbr title="Working Copy">WC</abbr> 和 Index 中的文件图标是可以点击的(注意我说的是图标= =b). WC 中的文件被点后会进入 Index, 意思是你缓存( `stage` )这个改动; Index 中的文件被点后会进入 WC, 意思是你放弃缓存这个文件的改动( `reset --mixed` );  
   
-右下角用来写 <b>提交说明</b> 这个也在后文讲.  
+<span class="bg-warning">右上角黄色的部分</span> 表示 差异(diff) 仅在你在点击 WC 或者 Index 中的文件名时(注意我说的是文件名= =b), 这个区域会列出这个文件改动了哪些行.  
+右下角是用来写 <b>提交说明</b> 这个也在后文讲.  
 
 ## 3. 摩擦! 摩擦!!
 
-选择 菜单栏 的 `版本库(repository)` > `图示所有分支的历史(Visualize all barnches history)`, 会调用另外一个程序. 这货叫做 gitk , 大概长得像下面的样子: 
+嗯...总之选择 菜单栏 的 `版本库(repository)` > `图示所有分支的历史(Visualize all barnches history)`, 然后会弹出一个新的窗口. 这货叫做 gitk , 大概长得像下面的样子: 
 
 ![](./asset/gitk-1.png)  
 
-<div class="alert alert-normal">你打开的那个无意外只有一个绿点, 所以目前先看这张图↑就好.</div>
+界面上方由线和点组成的部分称为`版本树`, (默认会)按时间顺序倒序排列. 现在看到的是一条直线, 但随着项目的多人合作这个它会逐渐产生分叉和合并. 这条线上的每一个小圆点表示一个 `提交(commit)`, 各种小圆点/小标签都有不同的含义:
 
-界面上方由线和点组成的部分称为`版本树(History)`, 按各次提交的逻辑顺序倒序排列. 这条线上的每一个小圆点表示一个 `提交(commit)`, 各种小圆点/小标签都有不同的含义:
-
-* <span style="color:red;">红色的小圆点 ●</span> 是当前 工作目录(WC) 发生的变更, 仅在修改/删除内容而未缓存时出现.
-* <span style="color:#00ff00;">绿色的小圆点 ●</span> 表示缓存区的变更, 仅在缓存区非空时出现.(截图时没有这个怪我咯)
-* <span style="color:yellow;">黄色的小圆点 ● </span> 表示 `HEAD`, 是仓库当前的状态, 通俗来说就是(打游戏时)目前读出的存档点.
-* <span style="color:blue;">蓝色的小圆点 ●</span> 是已经存入仓库的提交, 这些点是不能修改的
+* <span style="color:red;">红色的小圆点 ●</span> 是当前 工作目录(WC) 发生的变更, 仅在修改/删除过内容时出现.
+* <span style="color:#00ff00;">绿色的小圆点 ●</span> 表示缓存区的变更, 仅在缓存区非空时出现, 且出现在红点和黄点之间.
+* <span style="color:yellow;">黄色的小圆点 ● </span> 表示 `HEAD`, 也就是当前所处的提交点, 或者说(打游戏时)目前读出的存档点.
+* <span style="color:blue;">蓝色的小圆点 ●</span> 是已经存入数据库的提交, 所有蓝色点的集合称之为 `History`, 这些点是不能修改的
 * 至于点与点之间的线就不用我解释了吧 →_→
 
-每个点相当于(游戏的)一个存档, 可以从任何一个点读档然后任意地展开. 所有蓝点原则上无法改动, 亦无法单独地删除.
+而你写的代码或者别的什么东西就是经过 <span style="color:red;">红点</span>→<span style="color:00ff00;">绿点</span>→<<span style="color:blue;">蓝点</span> 这个过程逐步进化成整个版本树的.  
+每个提交都有一个唯一的 `SHA1 ID`, 这个值是通过提交内容等一堆因子算出来的, 理论上全球唯一.
 
-<div class="alert alert-danger">因此, 请不要将无法编译的源代码/编译过程中产生的中间文件/特定于编辑器的配置文件/日志/密码/果照/爱情动作片等放到版本库中.</div>
-
-* 还有 <span style="background-color:#00ff00; border:1px solid;">绿色的小标签</span> 表示 `分支(branch)` , 其中有些带有 <span style="background-color:#ffd8aa; border:1px solid black;">嫩肉色前缀</span> 的表示 `远程分支(remote branch)`. 前者是存在于此仓库的分支, 后者是存在于别的仓库的分支  
-* 成熟的项目还会有 <span style="background-color:yellow; border:1px solid;">黄色的小标签</span>, 它叫做 `tag` 或者 `里程碑(milestone)`, 通常会写着类似 <span style="background-color:yellow; border:1px solid black;">1.0.0</span> 的版本号, 这是给大牛发行用的.
-  <div class="alert alert-normal">这个贴条一般的东西具有一切贴条的功能, 这里不展开说.</div>
+* 还有 <span style="background-color:#00ff00; border:1px solid;">绿色的小标签</span> 表示 `分支(branch)` , 其中有些带有 <span style="background-color:#ffd8aa; border:1px solid black;">嫩肉色前缀</span> 的表示 `远程分支(remote branch)`. 两者的区别是前者是由你建立和管理的, 可以随便操作, 后者是别人建立和管理的, 对远程分支的操作需要经过分支主人的同意.  
+* <span style="background-color:#00ff00; border:1px solid;">绿色的部分</span>相同的分支互为`跟踪分支(tracking branch)`, 意指他们是同一个分支在不同仓库的映像, 跟踪分支只有在相容(其中一个为另一个的子集)的前提下进行 push 操作(后面我们就解释这一条)  
+* 成熟的项目还会有 <span style="background-color:yellow; border:1px solid;">黄色的小标签</span>, 它叫做 `tag` 或者 `里程碑(milestone)`, 通常会写着类似 <span style="background-color:yellow; border:1px solid black;">1.0.0</span> 的版本号, 这是给大牛发行用的, 小朋友没事不要玩这种危险的东西. (‾w‾ )  
 
 那么这个版本树的存在意义是什么呢? 首先请将它想象成一个 有向无环图 (数据结构学得不好的同学请想象成 有向链表 ‾ω‾b ). 那么每一个 ● 提交 都是这个图的节点. 而每一个 <span style="border:1px solid black;">分支/tag</span> 可以想象成指向这个节点的指针/引用. 通过将指针随便乱指(大误), 你可以读出任意一个节点的完整代码然后加以修改. 这就跟打游戏时的S/L大法一样bug. (｡・ω´・)っ  
 不过呢, 如果只是用版本树来开挂那也太low逼了(因为现在随便一个现代编辑器都有按时备份的功能). gitk或者说版本树本身还提供额外的信息, 比如说...看到提交记录里的邮件地址和时间了吗? 合作编程时被人捣乱? No problem! 除了能用 git 回滚之外你还能通过提交记录找到凶手然后冲过去揪住那人的衫领打他个半死...
