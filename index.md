@@ -5,18 +5,21 @@
 
 # 超科学的 git 和 Github 讲座(その１)
 
-> @contributors [github://scau-sidc/git-tutorial/contributors](https://github.com/scau-sidc/git-tutorial/graphs/contributors)  
+> @authors [github://scau-sidc/git-tutorial/contributors](https://github.com/scau-sidc/git-tutorial/graphs/contributors)  
 > @version 4.0.0-build20151215  
 > @license ![](https://i.creativecommons.org/l/by/3.0/cn/80x15.png) CC 3.0 BY CN  
 > @source [github://scau-sidc/git-tutorial](https://github.com/scau-sidc/git-tutorial/)    
 
+> Archives
+> * Ver. 2014 - [./index-archive-20141212.md](./index-archive-20141212.md)
+
 ## 0. What is ...
-通常来说这个时候应该说下 _git是什么_, 不过为了让这篇教程跟国产垃圾教材有所区别, 这里不会展开. 有兴趣的同学请自行[维基](http://zh.wikipedia.org/wiki/Git).   
+通常来说这个时候应该说下 _git是什么_, 但为了 dismystification , 这里不会展开. 有兴趣的同学请自行[维基 ↗](http://zh.wikipedia.org/wiki/Git).   
 现在, 只需要将 git 理解成 **一个可以在多人环境下随时保存和合并源代码的工具** 即可.  
 
 Github 就是依托 git 所建立的代码托管平台/社区, 你可以在那里四处乱逛, 寻找自己想要的代码, 吐槽别人; 或者直接脑洞大开自己写个软件出来, 搞不好还会受到路过大神的加持.
 不过对于英语成绩不好的同学来说, Github 是个噩梦. 在本篇教程中将只涉及 Github 的仓库托管功能. 因此只需要知道 `Sign up`, `Sign in`, `Create Repository` 这几个词组的中文意思即可.
-提供类 Github 服务的供应商还有很多, 比如 [OSChina Git](https://git.oschina.net)(简中/EN), [GitCafe](https://gitcafe.com/)(简中/繁中/EN), [bitbucket](http://bitbucket.org/)(EN). 但在此我们建议使用 Github, 一个充分理由是 git 的作者 [Linus Torvalds 使用 Github](https://github.com/torvalds).  
+提供类 Github 服务的供应商还有很多, 比如 [OSChina Git ↗](https://git.oschina.net)(简中/EN), [GitCafe ↗](https://gitcafe.com/)(简中/繁中/EN), [bitbucket ↗](http://bitbucket.org/)(EN). 但在此我们建议使用 Github, 一个充分理由是 git 的作者 [Linus Torvalds 使用 Github ↗](https://github.com/torvalds).  
 
 <div class="alert alert-normal">千万不要问 <i>Linus Torvalds 是什么</i> , 老邝保证不打死你.</div>
 
@@ -49,7 +52,7 @@ http://git-scm.org/
 
 ![](./asset/setup-7.png)
 
-理由是...不想解释.  
+理由是...为了能更方便地集成到win, 以及在跨平台间兼容.  
 
 ### on Mac
 (这个请去请教部长)
@@ -77,19 +80,19 @@ http://git-scm.org/
 你: "哦"(更改, 提交, 上传)"改完了. 昨天那个地址."
 老师: "Good..."
 
-<div class="alert alert-info">比如本教程的源代码就托管在 https://github.com/scau-sidc/git-tutorial . 任何人都可以自助取得.</div>
+<div class="alert alert-info">比如本教程的源代码托管在 <a href="https://github.com/scau-sidc/git-tutorial">https://github.com/scau-sidc/git-tutorial</a> . 任何人都可以自助取得.</div>
 
 之后的实验需要用到 Github, <strong>请务必注册一个账号</strong>.
 
-<div class="alert alert-info"> [github://scau-sidc](https://github.com/scau-sidc) 是 935 驻 Github 的开发者组织, 里面有很多老鬼在划水. 可以在注册完后将你的 id 发给老邝要求加入.</div>
+<div class="alert alert-info"> <a href="https://github.com/scau-sidc">github://scau-sidc</a> 是 935 驻 Github 的开发者组织, 里面有很多老鬼在划水. 可以在注册完后将你的 id 发给老邝要求加入.</div>
 
-[Github官方的新手教程](https://help.github.com/categories/bootcamp/)
+[Github官方的新手教程 ↗](https://help.github.com/categories/bootcamp/)
 
 ## 2. 心に刻んだ夢を放て!
 
 ![](./asset/72f5bfea-s.jpg)
 
-<div class="alert alert-normal">标题出自炮姐OP, 题图出自机巧少女, 图片仅供参考.</div>
+<div class="alert alert-normal">标题出自炮姐OP <a href="http://www.xiami.com/lrc/1769196206">↗</a>, 题图出自机巧少女, 图片仅供参考.</div>
 
 当然不可能立即就碉堡到这种程度↑咯 (´・ω・｀)  
 
@@ -105,12 +108,13 @@ http://git-scm.org/
 ![](./asset/gui-1.png)  
 意思很明确, 你要新建(`init`)呢? 还是克隆(`clone`)呢? 还是打开呢?
 
-今年我们选 创建新的版本库, 在随后的对话框中在你喜欢的位置弄一个空文件夹出来, 并且选择它.
+今年我们选 `创建新的版本库`, 在随后的对话框中挑选一个你喜欢的位置来置放你的代码. 这里以 `F:/project/hello-world/` 为例.
 
-<div class="alert alert-normal">这里我们以 F:\Project\git-tutorial\ 为例</div>
+完成后会变成以下的样子:  
+![](./asset/gui-3.png)
 
-完成后会变成以下的样子(略微会有些不同, 不要在意这些细节 (･ω･｀)っ彡/ ):  
-![](./asset/gui-3.png)  
+<div class="alert alert-normal">图文稍微有点不一样, 请不要在意这些细节 (･ω･｀)っ彡/ </div>
+  
 
 解说:  
 <span class="bg-danger">左上角红色的部分</span> 表示 工作目录(Working Copy), 也就是你以传统方式写代码时(i.e. 不使用 git ), 打开项目文件夹时看到的文件集合. 仅当你新建/修改/删除文件时, 他们会被列出在这里.  
@@ -120,13 +124,15 @@ http://git-scm.org/
   
 右下角用来写 <b>提交说明</b> 这个也在后文讲.  
 
-## 3. 摩擦! 摩擦!!
+## 3. 种一棵树最好的时间是十年前, 其次是现在
+
+<div class="alert alert-normal">标题取自最近在知乎流行的名言, 鸡汤请小心有毒.</div>
 
 选择 菜单栏 的 `版本库(repository)` > `图示所有分支的历史(Visualize all barnches history)`, 会调用另外一个程序. 这货叫做 gitk , 大概长得像下面的样子: 
 
 ![](./asset/gitk-1.png)  
 
-<div class="alert alert-normal">你打开的那个无意外只有一个绿点, 所以目前先看这张图↑就好.</div>
+<div class="alert alert-normal">你打开的那个无意外只有一个绿点, 随着你的热情与爱它会慢慢成长的. 在此之前请先看这张图↑就好.</div>
 
 界面上方由线和点组成的部分称为`版本树(History)`, 按各次提交的逻辑顺序倒序排列. 这条线上的每一个小圆点表示一个 `提交(commit)`, 各种小圆点/小标签都有不同的含义:
 
@@ -134,7 +140,7 @@ http://git-scm.org/
 * <span style="color:#00ff00;">绿色的小圆点 ●</span> 表示缓存区的变更, 仅在缓存区非空时出现.(截图时没有这个怪我咯)
 * <span style="color:yellow;">黄色的小圆点 ● </span> 表示 `HEAD`, 是仓库当前的状态, 通俗来说就是(打游戏时)目前读出的存档点.
 * <span style="color:blue;">蓝色的小圆点 ●</span> 是已经存入仓库的提交, 这些点是不能修改的
-* 至于点与点之间的线就不用我解释了吧 →_→
+* 至于点与点之间的线就不解释了 →_→
 
 每个点相当于(游戏的)一个存档, 可以从任何一个点读档然后任意地展开. 所有蓝点原则上无法改动, 亦无法单独地删除.
 
@@ -142,129 +148,202 @@ http://git-scm.org/
 
 * 还有 <span style="background-color:#00ff00; border:1px solid;">绿色的小标签</span> 表示 `分支(branch)` , 其中有些带有 <span style="background-color:#ffd8aa; border:1px solid black;">嫩肉色前缀</span> 的表示 `远程分支(remote branch)`. 前者是存在于此仓库的分支, 后者是存在于别的仓库的分支  
 * 成熟的项目还会有 <span style="background-color:yellow; border:1px solid;">黄色的小标签</span>, 它叫做 `tag` 或者 `里程碑(milestone)`, 通常会写着类似 <span style="background-color:yellow; border:1px solid black;">1.0.0</span> 的版本号, 这是给大牛发行用的.
-  <div class="alert alert-normal">这个贴条一般的东西具有一切贴条的功能, 这里不展开说.</div>
+  <div class="alert alert-normal">Tag 什么的当然是起到 tag 的功能啦.(废话</div>
 
-那么这个版本树的存在意义是什么呢? 首先请将它想象成一个 有向无环图 (数据结构学得不好的同学请想象成 有向链表 ‾ω‾b ). 那么每一个 ● 提交 都是这个图的节点. 而每一个 <span style="border:1px solid black;">分支/tag</span> 可以想象成指向这个节点的指针/引用. 通过将指针随便乱指(大误), 你可以读出任意一个节点的完整代码然后加以修改. 这就跟打游戏时的S/L大法一样bug. (｡・ω´・)っ  
-不过呢, 如果只是用版本树来开挂那也太low逼了(因为现在随便一个现代编辑器都有按时备份的功能). gitk或者说版本树本身还提供额外的信息, 比如说...看到提交记录里的邮件地址和时间了吗? 合作编程时被人捣乱? No problem! 除了能用 git 回滚之外你还能通过提交记录找到凶手然后冲过去揪住那人的衫领打他个半死...
+### So what?
 
-<div class="alert alert-warning">虽然现实很残酷, 不过, 看不懂版本树的人...会被同伴像垃(le)圾(se)一样抛弃的哦~</div>
+![](./asset/git-branch-parellel.png)
+<div class="alert alert-normal">Credit by <a href="http://nvie.com/about/">Vincent Driessen ↗</a>, originate from <a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/ ↗</a></div>
 
-<div class="alert alert-info">那么版本树存在哪儿呢? 打开 `${ws}\git-tutorial\.git` , 这是一个隐藏文件夹, 下面还有n个子文件夹, 四处打开看看? 切记不要乱删东西啊.. </div>
 
-## 4. 挖掘! 挖掘!!
-呃...我们还是来做实验吧! ヾ(*ΦωΦ)ﾉ︵◇  
+版本树的存在意义在于, 你可以创造无数平行的小宇宙↑. 这些小宇宙有相对独立的时间线, 但相互之间可以相互干涉或者融合.
+版本树的每一个 ● 提交 都是独立的状态(类比成游戏的存档), 于是你可以从任一个节点读档然后继续展开. 还有一个和游戏存档类似的特性是它们可以被分发, 在其他的机器上完全地再现.
+而 <span style="background-color:#00ff00; border:1px solid;">分支</span> 和 <span style="background-color:yellow; border:1px solid;">Tag</span> 则起到命名标记的作用, 方便人类以视觉快速地找到某些特别的提交. 两者的区别是分支<i>通常</i>会随着提交和合并而自动演进, 而 Tag 则是完全静态的.
+<div class="alert alert-danger">git 具有自动垃圾回收的功能, 分支和 tag 某种意义上起着 钉子 的作用. 版本树中, 没有被钉住的叶子节点会因为 unreferenced 而被销毁. </div>
+<div class="alert alert-normal">不过在这篇教程的范围内是不会涉及这种进阶操作的啦 ฅ(・ω・ฅ)</div>
 
-首先我必需假定你们已经完成上述步骤了, 没完成的按前文 HINT 真的就只能干瞪眼.  
-实验内容依然是毫无新意的订外卖...假定我们现在要订外卖, 以前我们会找一个人负责拿着纸笔逐个收集订单. 但这样很累, 而且很容易数多或是数漏. 所以我们这次要用 git 来收集订单, 然后自动向外卖店下订.
+版本树实际存储在项目文件夹之中, 一个名为 `.git` 的隐藏文件夹里. 如果不小心删掉的话所有历史记录都将会消失.
 
-<div class="alert alert-danger"><strong>我们只是模拟订外卖而已</strong>, 事实上不会有餐点送到, 请勿抱有任何期待.</div> 
+随着项目的扩增, 版本树会长得...很好看. 比如工作室贡献翻译的 [vim-cheat-sheet ↗](https://github.com/scau-sidc/vim-cheat-sheet/network) 或者工作室开发的 [wxpay-sdk ↗](https://github.com/cuter44/wxpay-sdk/network)
 
+
+## 4. 君が歌えば 僕も歌うから
+<div class="alert alert-normal">标题出自银之钥OP <a href="http://www.xiami.com/lrc/1772506559">↗</a>.</div>
+
+接下来我们做的实验, 分组的.  
+大概 2-3 人一组, 如果你正在独自观看这篇教程, 这意味着你需要至少找一个小伙伴或者以一人分饰两角.  
+堂授课请使用 手心手背分组法 或者 抛硬币分组法 快速分为2-3人的小组.   
+
+<div class="alert alert-info">遵循传统以下将使用 <a href="https://en.wikipedia.org/wiki/Alice_and_Bob">Alice, Bob and Carol</a> 作为角色代名. 请自行设定 cast.</div>
+
+### 实验准备
+
+1. 首先, 互相交换 Github ID, 写在纸上就最好了.  
+2. (在上一章中你们应该都已经新建了名为 hello-world 的本地仓库了)
+3. Alice 登入 Github, 点击右上角的 <span class="glyphicon glyphicon-plus"></span> → `New Repository`. 创建远程仓库.
+4. `Repository name` 你们喜欢就好. (这里以 <i>hello-world</i> 为例)
+5. 创建之后会在中间醒目的位置提示类似于 https://github.com/cuter44/hello-world.git 的 URL, 复制它.
+6. Alice, Bob 和 Carol 打开自己的 git-gui, 菜单栏 → 远端(Remote) → Add
+7. `Name` 填写 <i>origin</i>, `Location` 使用之前复制的值. 确定.
+   <div class="alert alert-success">这样你们相互之间已经确定同一个同步关系了.</div>
+   <div class="alert alert-info">对于既存的仓库还可以用 `克隆(clone)`, 相当于在(在本地创建仓库, 设定 origin 为源仓库地址, 复制源仓库内容)的命令集合.</div>
+8. Alice 在 Github 打开自己的仓库, 选择 <span class="glyphicon glyphicon-cog"></span> Settings → `Collaborators`, 将 Bob 和 Carol 的账号加入到列表中
+   <div class="alert alert-success">这样 Bob 和 Carol 就具有 hello-world 的写权限了.</div>
+9. 另外还有一项必要但与主题关系不大的工作: 三个人各自在 git-gui 打开 `编辑(Edit)` → `选项(Options)`, 在最上面两栏填写自己的 `用户名(User name)` 和 `邮件地址(Email Address)`. 不必要填写与 Github 一致. git 利用这两个字段标识代码的作者, 便于项目的参与者相互之间取得联系.
+    
+ 
 ### 提交(commit)
 
-1. git gui 打开前文拷贝回来的仓库.
-2. `分支(branch)` > `新建(create...)` > (名字里面随便输点什么, 我建议用你们的Github id, 这样可以避免重复, 其余默认即可). > 新建
-3. `版本库(repository)` > `Explorer Working Copy` > (打开了文件浏览器, 显示的是这个项目的根目录) > 打开 experiment 文件夹
-4. 随便挑个你喜欢的餐馆菜单, 打开, 点个餐然后保存.
-5. 回到 git GUI > `重新扫描(Rescan)` > (看到 WC 里有个很醒目的列表项?) > 将它缓存到 Index > 点 `提交(commit)` > (弹框!! 要先写提交记录才能提交!!)
-6. 焦点到右下方的`提交描述(Commit Message)` > 写点什么, 比如 `${自己的名字}点了${餐点的名字}` > 再次点 `提交(commit)` > (弹框!! 你是谁!?)
-7. `编辑(edit)` > `选项(option)` > (弹一个大框出来) > `用户名(User Name)` `Email Address` 理论上可以随便填, 但现在请填写你在Github的id和email.  > `保存` 
-   <div class="alert alert-info">细心的小伙伴会发现... Σ(ﾟДﾟ；≡；ﾟдﾟ)咦怎么有两列!? 区别是左边的(仓库配置)仅作用于当前仓库, 右边的(全局配置)作用于所有仓库, 仓库配置高于全局配置.</div>
-8. 再点 `提交(commit)` > (终于交上去了...)
-9. 打开 gitk 看看版本树变成怎样了?
+现在可以开始写代码了.
 
-有没有一种<del>荡气回肠</del>傲娇的感觉? 事实上诸如 代码要留名 提交有理由 都是良好的软件工程实践, git 以一种还算友好的方式督导你完成这些工作, 习惯了就好.
+<div class="alert alert-info">之前我们说过以 `F:/project/hello-world/` 为例.</div>
 
-<div class="alert alert-warning">虽然现实很残酷, 不过, 不好好写提交记录的人...会被同伴像垃(le)圾(se)一样抛弃的哦~</div>
+1. Alice 打开项目的根目录 `F:/project/hello-world/`
+2. 写 hello world, 比如:
 
-分步解释:
+		// hellow.c
+	
+		#include<stdio.h>
+		
+		int main(int argc, char *argv[])
+		{
+			printf("hello world");
+			return(0);
+		}
 
-1. Step 1 不解释
-2. Step 2 <strong>创建分支</strong>
-  * 先来解释下分支的意义: 你可以将分支理解成代码界的平行世界, 每个独立的分支等于一个独立的环境, 里面含有分支前的代码的镜像. 这个分支会呈线性向前发展, 而(在与其它分支合并前)不受到其他分支的干扰, 也不会干扰到别的分支. 
-  * 所以为什么要新建分支呢? 因为这会破坏分支内部的线性有序性(写后读读后写写后写读读写写写写读读...)怎么样光是断句就很头痛吧? 旧一代的版本管理工具比如svn就是因为没有原生支持分支所以才没朋友的.  
-3. Step 3
-4. ...和 Step 4 模拟了实际工作时对代码的<strong>修改</strong>
-5. Step 5 (试图)将变更沿着 WC → Index → commit <strong>缓存</strong>, 就如我们在前文提及的那样.
-   在写代码的过程中可以进行多次的 WC → Index, 在提交之前, 多个 Index 会以幂等的方式合并, 不过这在大多数情况下没什么意义...
-   注意仔细甄别要提交的内容, 有些会对强迫症患者造成伤害的东西(参见下面的红色框框)是不能交上去的. 这里介绍两种一劳永逸的方法: [.gitignore 和 excludes](http://gitbook.liuhui998.com/4_1.html)
-   <div class="alert alert-danger">git 不会自动地/定时地提交更改, 你自己也不要试图实现这种功能. 因为版本库都有"提交了就删不掉"的特性, 所以例如写到一半根本过不了编译的源代码啊, 程序运行日志啊, 编译时产生的中间文件啊, 连接数据库的帐号和密码啊, 果照啊(喂!), 小电影啊(喂喂!!)之类的东西要是一不小心提交上去的话...会死人的...</div>
-   <div class="alert alert-danger">"提交了就删不掉"特性在 git 身上并没完全反映, 一个commit在 (没有被任何branch指向) 且 (没有其他commit依赖它) 时可以被垃圾回收掉. 不过, 假如你的果照已经被别人clone到自己的机器上...那就神仙都救不了了...</div>
-6. Step 6 <strong>提交描述</strong> 是一个很重要的东西, 良好的提交记录可以向你的队友介绍你为项目作出的新贡献(而无需强迫他去阅读你的源代码). 一个比较合理的提交描述大概要写成[这样](https://github.com/cuter44/alipay-sdk/commit/02e9680934cde2d930e2a789c04ce9bf024487c5#js-repo-pjax-container), 当然你也可以用中文写, 也可以制定在自己工作组内通行的标准, 只要能起到概括/秒懂的效果就行.
-7. Step 7 不解释, 因为这不是日常.
-8. Step 8 <strong>提交</strong> 会提交到你的 <strong>本地版本库</strong> 的 <strong>当前分支</strong> 上, 通常都不会出什么意外.
-9. Step 9 看着分支树一天天长大是不是很有成就感?
+3. 保存, 最好顺便编译一次看写对了没有.
+4. 打开 git-gui, 文件 `hellow.c` 会出现在左上角 `未缓存的改动(Unstaged Changes)` 区域里, 表示 git 检测到你的改动了. 如果没看到, 点击下方的 `重新扫描(Rescan)`, 要求 git 检查改动.
+5. 点击 `hellow.c` 的图标, 它会转移到左下方的 `已缓存改动(Staged Changes)`  里.
+6. 逐一检查及筛选将要提交的文件, 重复以上步骤添加到 已缓存改动 中. 在这个例子里我们只有一个文件需要提交.
+7. 在下方的文本框撰写提交说明, 提交说明是用于描述此次提交对整个项目的影响, 便于其他人(也包括将来的你自己)快速地进行检索. 推荐的格式将在附录中讲述, 现在先这样填写:
 
-### 合并(merge)
+		inital commit.
 
-在上面的最后一步时你看到的分支树大概会像这个样子:  
-![](./asset/gitk-2-pre-merge.png)  
-可能会有分叉, 可能会没有, 但总之以你名字命名的分支和`gh-pages`分支已经不在同一个提交上了.
+   <div class="alert alert-normal">恭喜你们当中的一部分已经拿下本工作室的成就(之一), First Blood:取得某个项目的 inital commit</div>
+8. 现在可以点 `提交(commit)` 了
+   <div class="alert alert-success">至此 hellow.c 就已经进入 <strong>Alice 的本地仓库</strong>了. 不信的话可以打开 gitk 确认.</div>
+9. 在你认为你的工作成果需要共享给别人的时候, 点 `上传(push)`. 
+   ![](./asset/gui-before-push.png)
+   选择 上传哪个分支(这里选 <i>master</i>), 传到哪个仓库(这里选 <i>origin</i>), 之后你们会玩的了...
+   <div class="alert alert-success">然后更改被传送到 Github. 可以通过 Github 网页端查看, 或者(被其他人)通过 git 客户端 `提取(fetch)` 到本地仓库.</div>
+   <div class="alert alert-info">好了也差不多该告诉你们这个事实了.
+   这里 origin 是对远程仓库的命名, 可以随便命名所以你想叫它做金鱼草或者猫好好都是可以的. 不同的机器上对同一个远程仓库取不同的名字也是可以的.
+   不过名为 origin 的远程仓库被 git 认为是"源仓库", 对于 `push` `fetch` 等远程交换类指令在不指定目标仓库时会缺省将 origin 作为目标.
+   </div>
 
-1. Git GUI > `分支(branch)` > `Checkout` > `本地分支(Local branch)` > `gh-pages`
-   <div class="alert alert-info">这里再顺带一提 `检出(checkout)` 指令, 他允许你读取任意branch/commit的内容, 大致相当于游戏的 Load. 本来在上一节新建分支的下一步是要进行一次checkout操作以切换分支的, 但新建时下面有个默认勾选的`在创建后Checkout`, 所以 git 就自动切换分支了.</div>
-2. (界面回到 Git GUI) > `合并(merge)` > `本地合并(Local Merge)` > 选择你自己的分支 > `merge`
+<div class="alert alert-warning">
+为了避免如历史上的某人<!-- 我不会说是部长 -->一样产生错误的认知, 这里有必要再强调一次:
+<br />
+除非你亲自执行相应的指令, git 不会:
+<ul>
+  <li> 每 5 秒检查一次你写的代码并自动备份;
+  <li> 在你按下 <kbd>^S</kbd> <kbd>:w</kbd> whatever else... 的时候自动缓存改动或者提交;
+  <li> 自动将更改发到 Github 或者任何其他远程版本库中;
+  <li> 在 `提取(fetch)` 操作后自动对你正在编辑的代码打补丁.
+</ul>
+</div>
+  
 
-在这个教程的情景中, 这个操作应该会顺利完成. 之后你的版本树看起来大概会像这样:  
-![](./asset/gitk-3-post-merge.png)  
-可能会出现两条线, 也可能不会, 这取决于具体情境.
+### 提取(fetch), 分支(branch), 以及合作编辑
 
-### 上传(push)
+1. Bob 启动 git-gui, 选择 `远端(Remote)` → `从...提取(Fetch from)` → `origin`
+2. (等待 git 从 Github 取得 Alice 的更新)
+   <div class="alert alert-success">至此已经从 Github 取得 Alice 的更改, 并保存在 origin/master 上. 打开 gitk 可以看到相应的变化.</div>
+3. 选择 `分支(Branch)` → `Checkout` → `master`, 切换到 `master` 分支.
+3. 选择 `合并(Merge)` → `本地合并(Local Merge)`. 现在 Bob 应该处于 master 分支上, 应该会出现 `Merge Into master` 的字样.
+4. 选择 `跟踪分支(Tracking Branch)` → `origin/master` → `合并(Merge)`.
+   <div class="alert alert-success">至此已经将取得的更改应用到本地, Bob 正在编辑的文件(Working Copy)会同时被修改.</div>
+6. 选择 `分支(Branch)` → `新建分支(Create)` , 名字可以随便决定, 在此我们以 <i>branch-bob</i> 为例.
+   <div class="alert alert-info">关于 <i>分支(Branch)</i> 的概念会在下一节讲解.</div>
+7. 现在我们要写代码了: 
 
-到目前为止, 这些改动都是在你本地完成的, 表示服务器端的仓库的 <span style="background-color:#ffd8aa; border:1px solid black;">remotes/origin</span> 还停留在比较早的阶段. git 用于将本地更新发往远程仓库的操作名为 `上传(push)`.  
-<div class="alert alert-info">作为一个<del>死理性派</del>强迫症, 本喵翻遍字典都没找到将push解释成上传的义项. 不过 git 官方的 i18n 这么译, 也就只好这样了...</div> 
+		// HelloWorld.java
+		
+		public class HelloWorld {
+			public static void main(String[] args) {
+				System.out.println("hello world");
+				
+				return;
+			}
+		}
 
-1. Git GUI > `远端(remote)` > `上传(push)` > 选择 `gh-pages` > `上传(push)`
-2. 然后会弹框, 报告操作进度, 可能会要求你输入你在 Github 的帐号和密码.
-   <div class="alert alert-success">也可以让 git 记住密码, <a href="http://www.gnu.org/software/inetutils/manual/html_node/The-_002enetrc-File.html">https下使用.netrc</a>, <a href="http://git-scm.com/book/zh/v1/服务器上的-Git-生成-SSH-公钥">ssh下使用ssh公钥登录</a></div>
+8. 按上一节讲述的方法进行 <i>提交</i> 和 <i>上传</i>.
+   <div class="alert alert-success">这样 Bob 就为项目贡献了自己的代码了, 并且这些更改已经被提交到 Github.</div>
 
-好了麻烦的时候来了. 之前提到过只有相容的跟踪分支可以互相推送, 然后在上面这种错误示范下...是肯定会出问题的. 除了第一个 push 的童鞋之外的 push 都会被阻止.
+### 关于分支的讲解
 
-### 冲突(conflict)和解决冲突
+如果将版本树比作真正的树, 那分支就好比树上萌发的新芽.  
+上一代的版本管理工具, 比如 [SVN ↗](http://subversion.apache.org/) , 大多是不支持"分支"这种特性的, 版本号随每次提交自增 1, 修改历史严格线性. 在这种前提下, 经常会发生 <i>冲突</i> 并且无法自动合并:  
+![](./asset/SVN_merge.png)
+<div class="alert alert-normal">Credit by rice.edu, originate from <a href="https://www.clear.rice.edu/comp310/Eclipse/Subclipse/subversion.html">https://www.clear.rice.edu/comp310/Eclipse/Subclipse/subversion.html ↗</a></div>  
+至今世界上还有很多陈年项目是使用 SVN 进行版本管理的, 长年的折磨之下猿们也学会了以曲线救国的方式来模拟分支, 比如私自开小坑:
+![](./asset/SVN_branch_tag.png)
+<div class="alert alert-normal">Credit by rice.edu, originate from <a href="https://www.clear.rice.edu/comp310/Eclipse/Subclipse/subversion.html">https://www.clear.rice.edu/comp310/Eclipse/Subclipse/subversion.html ↗</a></div>
+(对此我只能表示...(=^ ・ω・^=)  
 
-在上一节 上传(push) 中, 大部分同学会看到下面这个框框:
-![](./asset/gui-push-conflict.png)  
-大体意思是有人先于你上传, 因为违反相容性所以不能接受你的上传, 后面还给出了说明, 让你先合并服务器端的更新再次提交. 
+好了我们扯回 git.
+如果你们已经做过需要组队完成的课程设计作业, 那你们一定进行过类似这样的流程: 拿到一个大任务(Epic) → 按人员拆分每个人负责一部分(Task & Assign) → (各自完成任务) → 归集各人的成果并进行组装 → 测试装配起来的成品是否符合初期目标 → 更改部件和重新组装, 重复直至满足目标为止.  
+在之前的实验中我们已经完成...呃...大概第三步的工作了, 一切都很顺利. 但之后就会变成噩梦, 组长为了组装各个部件可能需要对不具合的部分进行修剪和删改. 以人力来完成会非常...蛋疼(比如思政的那些××调查报告之类).  
+分支为这种场景提供解决方案. 通过和队友准实时地共享工作状态, 可以解决闭门造车的问题. git 则为分支提供进一步支持, 所有人每次提交的细节(改了哪些文件的哪些行, 谁改的, 谁先谁后...)都被记录在案, git 则利用这些信息来进行自动合并或者辅助人工合并.  
+分支有如下一些特性:
+1. 和植物的芽一样, 分支可以从任意 commit 分出. 在之前实验的分支操作中, 对话框还有一个字段是 `Starting Revision`, 可以从这里选择分支点.
+2. 分支可以相互合并, 如果没有冲突, git 可以按预期的结果自动合并不同分支间的差异. 
+3. 分支可以随便命名, 所以你想叫它做猫又或者九摩诃都是可以的. 一个仓库最开始的分支名字叫做 master, 这也是可以随意更改的. 通常将 master 作为主要分支, 专用于汇合所有人的提交. 
+4. 分支在每个远程仓库中通常有一个同名的 `跟踪分支(Tracking Branch)`, 表示这个分支在另一个仓库的同位物.
+5. gitk中, 分支名带有<span style="background-color:#ffd8aa; border:1px solid black;">嫩肉色前缀</span>的分支表示远程分支, 表示对应跟踪分支的位置, 在 fetch 操作时自动更新. 通常无法手动更改.
+6. 因为跟踪分支存在于另一个仓库中, 远程分支只是跟踪分支在本地的影, 所以位于本地仓库的本体和跟踪分支在物理上是两个分支.(看不懂的请无视)
+7. 因为(某分支的)跟踪分支和(该跟踪分支的)远程分支其实只是影与本体的区别, 所以在无歧义的情况下通常将两者混用.  
+8. 一个分支(包括其跟踪分支)通常只由一个人写. 多个人写同个分支会退化成线性的情况, 最终结果是像 SVN 一样产生大量冲突.
 
-1. 使用 `commit` 或者 `stash`(将在进阶篇讲授) 保存你当前的 WC.
-   <div class="alert alert-danger">这步切记要仔细完成. 尤其要注意提交尚未纳入版本管理的文件, 如果别人的提交中有同名文件, 属于你的那个可能会被覆盖掉! (×﹏×") </div>  
-2. 切换到本来要提交的分支, 在当前上下文是 gh-pages.
-3. 然后在下列等价操作中任选其一:
-   * `远端(remote)` > `从...获取(fetch from)` > `origin`, `合并(merge)` > `本地合并` > (自动选择了`跟踪分支(Tracking Branch)` 的 `origin/gh-pages`) > `合并(merge)`
-   * (这个只能命令行做) 
+### 合并更改, 以及冲突(Conflict)
 
-            git pull origin gh-pages
+在之前的实验中我们已经实践了一次合并(`origin/master` → `master`, 实质相同的分支相互吸收本质其实也是合并). 接下来的实验演示合并实质不同的分支(真・合并)以及解决冲突.
 
-4. 然后会继续弹出红色的框:
-   ![](./asset/git-merge-conflict.png)
-   大意是以下文件冲突, 请手动合并.
-5. 回到 Git GUI, 大概显示为以下样子:
-   ![](./asset/gui-conflict.png)
-   左侧用特殊的图标显示出有冲突的文件, 点击它之后会显示出冲突详情, 重点是这里:
+1. Carol 启动 git-gui, 选择 `远端(Remote)` → `从...提取(Fetch from)` → `origin`
+2. (等待 git 从 Github 取得 Alice 的更新)
+   <div class="alert alert-success">至此已经从 Github 取得 Alice 的更改, 并保存在 origin/master 上; 取得 Bob 的更改, 并保存在 <i>origin/branch-bob</i> 上</div>
+3. 选择 `分支(Branch)` → `Checkout` → `master`, 切换到 `master` 分支.
+3. 选择 `合并(Merge)` → `本地合并(Local Merge)`. 现在 Carol 应该处于 master 分支上, 应该会出现 `Merge Into master` 的字样.
+4. 选择 `跟踪分支(Tracking Branch)` → `origin/master` → `合并(Merge)`.
+   <div class="alert alert-success">至此已经将 Alice 的更改应用到本地, Carol 正在编辑的文件(Working Copy)会同时被修改. Bob 的更改未被引入.</div>
+6. 选择 `分支(Branch)` → `新建分支(Create)` , 名字可以随便决定, 在此我们以 <i>branch-carol</i> 为例.
+   <div class="alert alert-info">关于 <i>分支(Branch)</i> 的概念会在下一节讲解.</div>
+7. 写代码: 
 
-           <<<<<<< HEAD
-          + 
-          +5+0    醇香咖啡                   ¥8
-           =======
-         + 
-         + kuangyj    焦糖拿铁                   ¥10
-           >>>>>>> github/gh-pages
-   这是 git 用于标记冲突的语法, 七个左尖括号到七个等号之间是当前分支的内容, 七个等号到七个右尖括号之间是待合并分支的内容.
-6. 然后, `工具(Tools)` > `edit this file` 打开这个文件编辑. 因为我们正在"订外卖", 所以两条都要保留下来, 最后变成这样:
-   
-        (空行) 
-        5+0    醇香咖啡                   ¥8
-        kuangyj    焦糖拿铁                   ¥10
+		// HelloWorld.java
+		
+		import java.util.Random;
+		
+		public class HelloWorld {
+		    public static String randomString(int i) {
+		        Random ran = new Random(i);
+		        StringBuilder sb = new StringBuilder();
+		        while (true) {
+		            int k = ran.nextInt(27);
+		            if (k == 0)
+		                break;
+		
+		            sb.append((char)(64 + k));
+		        }
+		
+		        return sb.toString();
+		    }
+		
+		    public static void main(String[] args) {
+		        System.out.println(randomString(-229985452) + " " + randomString(-147909649));
+		    }
+		}
 
-   <div class="alert alert-info">是不是找不到`edit this file`呢? 因为这是副主任自己配置的wwwwwww</div>
+8. 按上一节讲述的方法进行 <i>提交</i> 和 <i>上传</i>.
 
-7. 保存之后回到 Git GUI `重新扫描(Rescan)`, 修改内容已经反映到diff上了, 这时可以将 WC 的修改 `stage` 然后 `commit`.
-8. 再次尝试 `上传(Push)`
-   <div class="alert alert-info">如果再次上传还是冲突...那只能怪自己手脚慢了(因为别人比你先解决冲突然后把自己的版本覆盖上去了)</div>
+在此假设 Alice 是项目组组长, 负有整合项目的职责, 接下来她需要这么做:
 
-<div class="alert alert-info">除了上述方法以外, 如果你确定要覆盖服务器的分支, 可以在 push 时选择 force overwrite. 该选项会强制将远端的对应分支重置为本机上的样子, 相应的远端分支原来的内容会丢失. 慎用...</div>
+1. 通过 fetch 取得 <i>branch-bob</i>, 和 <i>branch-coral</i>.
+2. 确认处于 master 分支上, 否则使用 checkout 转移到 master 上.
+3. 使用 merge 将
 
 
-以上几乎就是 一个凡人级别的程序猿/媛 日常使用git 所会碰到的全部问题了. git的命令[还有很多](http://git-scm.com/docs), 某些指令例如 `git log`, `git status`, `git branch` 已经隐含在图形界面操作之中; `git rm`, `git mv` 等因为很少用到所以略过; `git stash` `git rebase` 等将在进阶教程(还没写出来)内讲述, 当然也可以独自阅读 reference 和 [Pro Git](http://git-scm.com/book/zh/v1) 学习.
+(前方仍在施工)
 
 ## 5. Build software better, together.
 
