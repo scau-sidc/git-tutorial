@@ -1,5 +1,6 @@
 <link rel="stylesheet" href="./bootstrap-3.2.0-dist/css/bootstrap.min.css">
 <style type="text/css"> .alert-normal {color: #404040; background-color: #f5f5f5; border-color: #cccccc; } </style>
+<style type="text/css"> img { box-shadow: 2px 4px 4px 2px #a0a0a0; } </style>
 <script src="./jquery/jquery.1.11.1.min.js"></script>
 <script src="./bootstrap-3.2.0-dist/js/bootstrap.min.js"></script>
 
@@ -105,12 +106,15 @@ http://git-scm.org/
 <div class="alert alert-info">在 Android 上也有可用的 git 工具, 但至今为止未发现哪个特别好用的. iOS 方面请咨询部长.</div>
 
 总之我们已经启动 git 了, 大多数情况下会弹出下面这个东东:  
+
 ![](./asset/gui-1.png)  
+
 意思很明确, 你要新建(`init`)呢? 还是克隆(`clone`)呢? 还是打开呢?
 
 今年我们选 `创建新的版本库`, 在随后的对话框中挑选一个你喜欢的位置来置放你的代码. 这里以 `F:/project/hello-world/` 为例.
 
 完成后会变成以下的样子:  
+
 ![](./asset/gui-3.png)
 
 <div class="alert alert-normal">图文稍微有点不一样, 请不要在意这些细节 (･ω･｀)っ彡/ </div>
@@ -153,6 +157,7 @@ http://git-scm.org/
 ### So what?
 
 ![](./asset/git-branch-parellel.png)
+
 <div class="alert alert-normal">Credit by <a href="http://nvie.com/about/">Vincent Driessen ↗</a>, originate from <a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/ ↗</a></div>
 
 
@@ -274,12 +279,18 @@ http://git-scm.org/
 
 如果将版本树比作真正的树, 那分支就好比树上萌发的新芽.  
 上一代的版本管理工具, 比如 [SVN ↗](http://subversion.apache.org/) , 大多是不支持"分支"这种特性的, 版本号随每次提交自增 1, 修改历史严格线性. 在这种前提下, 经常会发生 <i>冲突</i> 并且无法自动合并:  
+
 ![](./asset/SVN_merge.png)
+
 <div class="alert alert-normal">Credit by rice.edu, originate from <a href="https://www.clear.rice.edu/comp310/Eclipse/Subclipse/subversion.html">https://www.clear.rice.edu/comp310/Eclipse/Subclipse/subversion.html ↗</a></div>  
+
 至今世界上还有很多陈年项目是使用 SVN 进行版本管理的, 长年的折磨之下猿们也学会了以曲线救国的方式来模拟分支, 比如私自开小坑:
+
 ![](./asset/SVN_branch_tag.png)
+
 <div class="alert alert-normal">Credit by rice.edu, originate from <a href="https://www.clear.rice.edu/comp310/Eclipse/Subclipse/subversion.html">https://www.clear.rice.edu/comp310/Eclipse/Subclipse/subversion.html ↗</a></div>
-(对此我只能表示...(=^ ・ω・^=)  
+
+(对此我只能表示...(´・ω・｀)  
 
 好了我们扯回 git.
 如果你们已经做过需要组队完成的课程设计作业, 那你们一定进行过类似这样的流程: 拿到一个大任务(Epic) → 按人员拆分每个人负责一部分(Task & Assign) → (各自完成任务) → 归集各人的成果并进行组装 → 测试装配起来的成品是否符合初期目标 → 更改部件和重新组装, 重复直至满足目标为止.  
@@ -288,12 +299,13 @@ http://git-scm.org/
 分支有如下一些特性:
 1. 和植物的芽一样, 分支可以从任意 commit 分出. 在之前实验的分支操作中, 对话框还有一个字段是 `Starting Revision`, 可以从这里选择分支点.
 2. 分支可以相互合并, 如果没有冲突, git 可以按预期的结果自动合并不同分支间的差异. 
-3. 分支可以随便命名, 所以你想叫它做猫又或者九摩诃都是可以的. 一个仓库最开始的分支名字叫做 master, 这也是可以随意更改的. 通常将 master 作为主要分支, 专用于汇合所有人的提交. 
-4. 分支在每个远程仓库中通常有一个同名的 `跟踪分支(Tracking Branch)`, 表示这个分支在另一个仓库的同位物.
-5. gitk中, 分支名带有<span style="background-color:#ffd8aa; border:1px solid black;">嫩肉色前缀</span>的分支表示远程分支, 表示对应跟踪分支的位置, 在 fetch 操作时自动更新. 通常无法手动更改.
-6. 因为跟踪分支存在于另一个仓库中, 远程分支只是跟踪分支在本地的影, 所以位于本地仓库的本体和跟踪分支在物理上是两个分支.(看不懂的请无视)
-7. 因为(某分支的)跟踪分支和(该跟踪分支的)远程分支其实只是影与本体的区别, 所以在无歧义的情况下通常将两者混用.  
-8. 一个分支(包括其跟踪分支)通常只由一个人写. 多个人写同个分支会退化成线性的情况, 最终结果是像 SVN 一样产生大量冲突.
+3. 分支可以随便命名, 所以你想叫它做猫又或者九摩诃都是可以的. 一个仓库最开始的分支名字叫做 master, 这也是可以随意更改的. 通常将 master 作为主要分支, 专用于汇合所有人的提交.
+4. 此外还有一个伪的"分支"名字叫做 HEAD , 它始终指向当前 checkout 的提交点.
+5. 分支在每个远程仓库中通常有一个同名的 `跟踪分支(Tracking Branch)`, 表示这个分支在另一个仓库的同位物.
+6. gitk中, 分支名带有<span style="background-color:#ffd8aa; border:1px solid black;">嫩肉色前缀</span>的分支表示远程分支, 表示对应跟踪分支的位置, 在 fetch 操作时自动更新. 通常无法手动更改.
+7. 因为跟踪分支存在于另一个仓库中, 远程分支只是跟踪分支在本地的影, 所以位于本地仓库的本体和跟踪分支在物理上是两个分支.(看不懂的请无视)
+8. 因为(某分支的)跟踪分支和(该跟踪分支的)远程分支其实只是影与本体的区别, 所以在无歧义的情况下通常将两者混用.  
+9. 一个分支(包括其跟踪分支)通常只由一个人写. 多个人写同个分支会退化成线性的情况, 最终结果是像 SVN 一样产生大量冲突.
 
 ### 合并更改, 以及冲突(Conflict)
 
@@ -339,75 +351,138 @@ http://git-scm.org/
 在此假设 Alice 是项目组组长, 负有整合项目的职责, 接下来她需要这么做:
 
 1. 通过 fetch 取得 <i>branch-bob</i>, 和 <i>branch-coral</i>.
-2. 确认处于 master 分支上, 否则使用 checkout 转移到 master 上.
-3. 使用 merge 将
+2. 确认处于 master 分支上, 否则通过 checkout 转移到 master 上.
+3. 通过 merge 将 <i>branch-bob</i> 合并到 master, 应该可以自动完成此操作.
+4. 通过 merge 将 <i>branch-carol</i> 合并到 master, 此时应该提示出现冲突. 
 
+之所以发生冲突是因为两个人在不同的分支上都增加了 <i>HelloWorld.java</i> 这个文件, 并且 git 发现这两个操作无法被串行化. git 因为无法判断应该取舍哪些内容, 于是报告冲突, 要求人工介入.
+冲突的文件 <i>HelloWorld.java</i> 会显示在 git-gui 的 未缓存更改 区域, 点击文件名会显示如下的内容:
 
-(前方仍在施工)
+      <<<<<<< HEAD
+     +// HelloWorld.java
+     +
+     +public class HelloWorld {
+     +  public static void main(String[] args) {
+     +    System.out.println("hello world");
+     +    
+     +    return;
+     +  }
+     +}
+      =======
+    + // HelloWorld.java
+    + 
+    + import java.util.Random;
+    + 
+    + public class HelloWorld {
+    +     public static String randomString(int i) {
+    +         Random ran = new Random(i);
+    +         StringBuilder sb = new StringBuilder();
+    +         while (true) {
+    +             int k = ran.nextInt(27);
+    +             if (k == 0)
+    +                 break;
+    + 
+    +             sb.append((char)(64 + k));
+    +         }
+    + 
+    +         return sb.toString();
+    +     }
+    + 
+    +     public static void main(String[] args) {
+    +         System.out.println(randomString(-229985452) + " " + randomString(-147909649));
+    +     }
+    + }
+      >>>>>>> origin/branch-carol
 
-## 5. Build software better, together.
+并且在 HelloWorld.java 里也是相似的内容. 这些由 git 添加的标记含义如下:
 
-<a href="https://octodex.github.com/collabocats/"><img src="https://octodex.github.com/images/collabocats.jpg" width="240px"></a>
+* 每对 `<<<<<<<`, `>>>>>>>` 之间的块称为 Hunk. 是 git 通过比对之后分离的分歧区块.
+* 每个 Hunk 内部以 `=======` 分隔合并的目标/来源分支相对于它们的共同父版本以来发生的变化.
+* 为了增加分辨度在 git-gui 中以上两种以黄色显示, 是 git 自己添加上去的内容.
+* 前面的 +/- 表示增加/减少了哪些行.
+* 增加/减少的内容是 git 根据两个分支各自的提交记录迭代得出的, 也就是 Bob 和 Carol 写的内容.
 
-嗯, Github 的口号...
-很难定义 Github 是什么, 他不是单纯的软件仓库, 不是社交网络, 不是协作工具, 虽然它样样都占点边.
-围绕 git 的版本管理功能, 它扩展了很多好玩的功能, 使写代码变成一件相当有趣的事.(蓝星人就知道刷微博...唉)
+解决冲突的方法有两个:
 
-好吧正题...
+* 如果 Hunk 的取舍是非此即彼的, 可以在 git-gui 中右键点击 Hunk, 然后选择保留 HEAD 或者 <i>branch-carol</i>, 又或者两个都不要.
+* 如果 Hunk 的调整比较复杂, 则必须用编辑器打开冲突的文件进行编辑, 完成后要将所有的 `<<<<<<<`, `=======`, `>>>>>>>` 标记删掉. github 会以此检查冲突是否都解决完了.
+
+在此假定我们要保留 Carol 的版本:
+
+1. 用编辑器将从 `<<<<<<<` 到 `=======` 的范围删掉, 将 `>>>>>>>` 单独一行删掉.
+2. 保存后回到 git-gui, 要求 Rescan
+3. 通过和上一节相似的步骤完成 stage commit 和 push 操作.
+
+注意我们为了演示如何解决冲突而<i>故意</i>让 Carol 制造冲突, 正确的展开应该是 Carol 注意到 Bob 添加了 HelloWorld.java 这个文件, Carol 从 master 建立 <i>branch-carol</i> 分支后, 应该先合并 <i>branch-bob</i> 然后再在 Bob 的基础上修改 HelloWorld.java .
+另外, 工作划分的科学性 和 程序设计的耦合度 也是影响冲突发生频度的重要因素. 理想的状况下的划分能尽量地避免触及到同一个文件, 相应地减小冲突的发生状况.
+
+## 5. 冋性鲛叐悱懈漃瀎 ｇi┳Ημb.ㄈ〇M 
+
+<img src="https://octodex.github.com/images/collabocats.jpg" width="240px">
+
+<div class="alert alert-normal">标题取自...请自行百度, 题图来自 Github Octcat <a href="https://octodex.github.com/collabocats/">↗</a></div>
+Github 是目前世界最大的程序<del>猿同性交友</del>源代码托管和协作网站, 围绕 git 的版本管理功能扩展了很多好玩的功能. 突出 社交化/开源/轻量 等要素.
+
+以下是为英语渣特别提供的讲解, 已经玩得很溜的同学可以跳过.
 
 ### Timeline & Dashboard
 登录之后的第一个画面就是 Timeline, 不过通常都没啥好看的, 因为大部分信息都没有价值.
 
-随便戳一个人的名字会去到他的个人主页(比如[副主任的](https://github.com/cuter44))左边是 biography, 自己在 settings 填写. 右侧分了好几块, 从上到下分别是:
+随便戳一个人的名字会去到他的个人主页(比如[副主任的](https://github.com/cuter44))左边是 biography(在 settings 中设定). 右侧分了好几块, 从上到下分别是:
  
-* 页签 切换 活动数据, 仓库列表, (那个用户的)timeline , 后两个不解释了.
-* 热门仓库 显示这个用户写的热门内容.
-* 贡献 显示活跃度, 某些人会喜欢把那个列表刷到全绿... 不过如果[参拜过 Linus 大神的 Github 帐号](https://github.com/torvalds), 呵呵.
-* 然后戳上面的小格子下面会列出具体的内容.
+* 页签 切换 <span class="glyphicon glyphicon-plus-sign"></span> 活动数据, <span class="glyphicon glyphicon-book"></span> 仓库列表, <span class="glyphicon glyphicon-align-left"></span> (那个用户的)timeline , 后两个不解释了.
+* 热门仓库 显示这个用户的受关注项目.
+* 贡献 显示活跃度, 某些人有把所有格子刷到全绿的嗜好...
+* 戳上面的小格子下面会列出具体的内容.
 
-哦对了, 访问别人的主页时右上角会有 <button class="btn btn-success">Follow</button> 按钮, 不解释. 
+另外在别人的主页时右上角会有 <button class="btn btn-success">\_(:з」∠*)\_ Follow</button> 按钮, 意思是"请收下我的<del>菊花</del>膝盖". 
 
 ### Repository
-当遇见喜欢的 repo, 比如[这篇教程](https://github.com/scau-sidc/git-tutorial), 可以使用右上角有三个操作 <button class="btn btn-default">Φ Watch</button><button class="btn btn-default">★ Star</button><button class="btn btn-default">Υ Fork</button>. 它们大致对应于蓝星微博的 收藏 点赞 转发 操作, 更详细的含义请自行在[Github的帮助系统](https://help.github.com/)搜索.
+
+当遇见喜欢的 repo, 比如[这篇教程](https://github.com/scau-sidc/git-tutorial), 可以使用右上角有三个操作 <button class="btn btn-default">(ΦωΦ") Watch</button> <button class="btn btn-default">(☆ω☆") Star</button> <button class="btn btn-default">ฅ(・ω・ฅ) Fork</button>. 它们大致对应于蓝星微博的 收藏 点赞 转发 操作, 更详细的含义请自行在[Github的帮助系统](https://help.github.com/)搜索.
 旁边的数字表示 Watch/Star/Fork 这个仓库的人数, 戳进去可以看具体是谁.
 
 ### Issues
+
 ![](./asset/github-issue.png)
-每个仓库都会附带一个轻量级的跟踪系统, 可以用于 你发现bug并且想报告给作者/向作者提问提建议/请求队友协助(比如要求新的API)/记录自己的待办事项, 用法和 teamibition 的任务版大同小异, 这里就不再展开说了.
+
+每个仓库都会附带一个轻量级的跟踪系统, 可以用于 你发现 bug 并且想报告给作者/向作者提问提建议/请求队友协助(比如要求新的API)/记录自己的待办事项. 通过这里报告 bug 之后责任者和大家都能够看到, 热心的责任者可能会联络你询问 bug 的细节, 或是答复你的报告.
 
 ### Wiki
+
 ![](./asset/github-wiki.png)
 
-如果作者愿意, 会开放并且撰写 Wiki. Wiki 通常用于弥补文档注释的不足, 用来放置用户文档或者系统文档. 不过就实际使用情况来说, 其实不是那么方便...
-<div class="alert alert-info">并且...像副主任这种乐于写文档的业界良心已经不多了...</div>
+Wiki 就是关于这个软件如何使用的说明, 以及一些特性的解释等. 通常由仓库的责任者撰写, 对于开源项目还会有热心群众协助撰写和翻译.
 
-### Pull Request
-![](./asset/github-pr.png)
-前面我们教了上传(push), 能使用 push 的前提条件是你对远程仓库有写权限. 举个栗子, 刚刚我们用于订外卖的仓库, 只所以强调要提前加入组织就是为了授予对仓库的写权限. 如果没有写权限而又想要往仓库推送内容的话, 就应该使用 Pull Request 操作.
-<div class="alert alert-info"><abbr title="Pull Request">PR</abbr> 是 Github 特有的操作.</div>
+### Fork 和 Pull Request
+
+![](./asset/github-pr.png)                    
+
+直接上传更改的必要前提是, 你必需是某个仓库的 collaborator. 但对于开源项目来说不可能将所有的潜在参与者逐一添加. 这时则通过 Fork 和 Pull Request 机制来放宽编辑条件.
+Fork 操作可以将他人的仓库复制一份到自己的名下. 因为这是名义上属于你的操作, 所以你具有完全的写权限. 当你完成某些修改之后, 你可以向这个仓库的原作者发送 Pull Request 提醒其检查你的更改并采纳到来源仓库中.  
+PR 亦可以在同仓库内进行. 比如 Bob 在完成 HelloWorld.java 后不确定其中是否有缺陷, 则他可以向 Alice 发送 PR 以提醒她在合并之前先检查一次代码.
+<div class="alert alert-info"><del><abbr title="Pull Request">PR</abbr> 是 Github 特有的操作.</del> PR 是 git 所不具有的机能, 由 Github 原创. 大部分托管商现在都提供了 PR 机能, 然而只有 Github 的最人性化.</div>
 
 1. 首先要将自己的分支(在这里是`galin`)上传到 Github.
-2. 然后登入到项目, 会看到下图的提示, 果断点<button class="btn btn-success">Compare &amp; pull request</button>.
+2. 然后登入到项目, 会看到下图的提示, 果断点 <button class="btn btn-success">Compare &amp; pull request</button>.
    ![](./asset/github-pre-pr.png)
 3. 然后接下来的操作与 commit 类似, 它要求你给出这个 PR 的提交描述, 所以应该按提交描述的规范认真写, 完成之后按 <button class="btn btn-success">Create pull request</button>.  
 4. (跳转到PR详情页面), 整个页面包含了 你写的 PR 摘要, 包含的 commit, 文件的diff
 
-然后仓库的主人和这个 PR 的责任者会收到邮件. 然后他会检查你的 PR, 从而选择接受或者拒绝你的提交. 到这里 PR 就完成了, 界面看上去会变成题图的样子.
-
-PR 的应用场景包括但不限于以下几种:  
-
-* 从仓库外(别人fork你的)接受提交
-* 同一个工作组中, 有一个大牛做负责人, 大牛规定所有代码要由他过目才能汇集到主分支.
-* 自己给自己发 PR(当备忘使用)
+然后仓库的主人和这个 PR 的责任者会收到邮件. 他需要检查你的 PR, 选择接受或者拒绝该PR. 到这里 PR 就完成了, 界面看上去会变成题图的样子.
 
 ### Github Pages
-就是你正在看这篇教程所依赖的托管服务了, 它会将当前目录的 `gh-pages` 发布成静态网站. 并且支持一种名为 [jekyll](http://jekyllrb.com/) 的脚本语言. 嗯...然后, 你懂的.  Where there is an API, there is a way.
+
+就是你正在看这篇教程所依赖的托管服务了, 它会将当前仓库里的 `gh-pages` 分支作为网站发布. 通过一种名为 [jekyll](http://jekyllrb.com/) 的工具.
 比如[本工作室的博客](http://scau-sidc.github.io/)就是几只大牛<del>利用业余时间</del>受老邝所迫撸出来的.
 
 ### Gist
+
 ![](./asset/gist.png)
-经常会有一些小脚本你想抄起来以后用, 但它本身的规模又没大到需要专门建个仓库去安置它.  
-Gist就是用来满足这种需求的. 随手写, 随时用, 闲得慌了还能"手气不错"一下.
+
+Gist 通常是因为特定目的而撰写的小段代码. 其本质也是仓库, 支持大部分仓库的操作. 但通常因为只有一两个文件于是懒得很隆重地为他们分别建立仓库.  
+因为部分内容包含了某些真理所以通常都会被 GFW 墙掉.
+比如副主任的[正方抢课脚本](https://gist.github.com/cuter44/9460159)
 
 ## 6. 某超科学的<del>附录</del>黑历史
 
@@ -444,18 +519,8 @@ Gist就是用来满足这种需求的. 随手写, 随时用, 闲得慌了还能"
 提交的标题不说了, 很容易就能总结出来.
 然后下面以树状的方式列出更新的内容. 前导的符号表示更新的类型, `+` 表示新增, `*` 表示修改, `-` 表示删除, 这些和 `git diff` 的表示法相容. 需要额外注意的内容则用 `!` 表示.
 
-### 超科学的分支命名法
-有一些约定俗成的命名规则:
+### 参考资料
+* 为了照顾那些幽默感退化的人们, git 的本家提供了严肃的 [git 教程](http://git-scm.com/book/zh/v2)(熟肉, 以及另外33种语言)
+* 超科学的分支实践法: [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/) by <i>Vincent Driessen</i>, 熟肉:[git分支最佳实践](http://segmentfault.com/a/1190000000434973) by SegmentFault   
 
-* 如果你的仓库是以 `git clone` 拷贝回来的, 那么源仓库会被命名为 origin, 也就是 本源 的意思, 在命令行执行 `git fetch` `git push` 且没有指定远程仓库的名字时, 会默认使用这个.
-* 主分支通常命名为 `master`, 用于存放用于发布的稳定版本. 且作为[软件基线](http://baike.baidu.com/view/2113289.htm)(发布基线).
-* 通常会有一个开发分支 `develop`, 用于收集和积淀开发过程中的功能性更新, 且作为软件基线(开发基线). 通常这两个基线的每一个提交都要求是完备的, i.e. 能够正确编译且通过全部测试用例(不过工作室一直以来都没测试管理, 所以说了也白说...).
-* 然后...没了, 更规范的实践推荐看这个<a href="http://nvie.com/posts/a-successful-git-branching-model/"><i>A successful Git branching model</i></a> By <i>Vincent Driessen</i> (<a href="http://segmentfault.com/a/1190000000434973"><i>git分支最佳实践</i></a> 由 SegmentFault 翻译)   
-
---------------
-
-后记
-
-妈蛋这又不是轻小说写毛线后记(╯‵д′)╯︵┻━┻
-进阶版再说吧...
 
