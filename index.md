@@ -20,7 +20,7 @@
 
 Github 就是依托 git 所建立的代码托管平台/社区, 你可以在那里四处乱逛, 寻找自己想要的代码, 吐槽别人; 或者直接脑洞大开自己写个软件出来, 搞不好还会受到路过大神的加持.
 不过对于英语成绩不好的同学来说, Github 是个噩梦. 在本篇教程中将只涉及 Github 的仓库托管功能. 因此只需要知道 `Sign up`, `Sign in`, `Create Repository` 这几个词组的中文意思即可.
-提供类 Github 服务的供应商还有很多, 比如 [OSChina Git ↗](https://git.oschina.net)(简中/EN), [GitCafe ↗](https://gitcafe.com/)(简中/繁中/EN), [bitbucket ↗](http://bitbucket.org/)(EN). 但在此我们建议使用 Github, 一个充分理由是 git 的作者 [Linus Torvalds 使用 Github ↗](https://github.com/torvalds).  
+提供类 Github 服务的供应商还有很多, 比如 [OSChina Git ↗](https://git.oschina.net)(简中/EN), [GitCafe ↗](https://gitcafe.com/)(简中/繁中/EN), [bitbucket ↗](http://bitbucket.org/)(EN), [coding.net ↗](https://coding.net/)(简中). 但在此我们建议使用 Github, 一个充分理由是 git 的作者 [Linus Torvalds 使用 Github ↗](https://github.com/torvalds).  
 
 <div class="alert alert-normal">千万不要问 <i>Linus Torvalds 是什么</i> , 老邝保证不打死你.</div>
 
@@ -123,7 +123,7 @@ http://git-scm.org/
 解说:  
 <span class="bg-danger">左上角红色的部分</span> 表示 工作目录(Working Copy), 也就是你以传统方式写代码时(i.e. 不使用 git ), 打开项目文件夹时看到的文件集合. 仅当你新建/修改/删除文件时, 他们会被列出在这里.  
 <span class="bg-success">左下角绿色的部分</span> 表示 Index(或称为 缓存区, 目前没有公认的中文翻译), 是你在缓存改动准备用于提交的地方, 关于<b>提交</b>的概念将在后文详述.  
-<abbr title="Working Copy">WC</abbr> 和 Index 中的文件图标是可以点击的(注意我说的是图标= =b). WC 中的文件被点后会进入 Index, 表示需要缓存( `stage` )这个改动; Index 中的文件被点后会进入 WC, 表示放弃缓存这个文件的改动( `reset --mixed` );  
+<abbr title="Working Copy">WC</abbr> 和 Index 中的文件图标是可以点击的(注意我说的是图标= =b). WC 中的文件被点后会进入 Index, 表示需要缓存( `Carol` )这个改动; Index 中的文件被点后会进入 WC, 表示放弃缓存这个文件的改动( `reset --mixed` );  
 <span class="bg-warning">右上角黄色的部分</span> 表示 差异(diff) 仅在你在点击 WC 或者 Index 中的文件名时(注意我说的是文件名= =b), 这个区域会列出这个文件改动了哪些地方.
   
 右下角用来写 <b>提交说明</b> 这个也在后文讲.  
@@ -217,7 +217,7 @@ http://git-scm.org/
 		}
 
 3. 保存, 最好顺便编译一次看写对了没有.
-4. 打开 git-gui, 文件 `hellow.c` 会出现在左上角 `未缓存的改动(Unstaged Changes)` 区域里, 表示 git 检测到你的改动了. 如果没看到, 点击下方的 `重新扫描(Rescan)`, 要求 git 检查改动.
+4. 打开 git-gui, 文件 `hellow.c` 会出现在左上角 `未缓存的改动(UnCarold Changes)` 区域里, 表示 git 检测到你的改动了. 如果没看到, 点击下方的 `重新扫描(Rescan)`, 要求 git 检查改动.
 5. 点击 `hellow.c` 的图标, 它会转移到左下方的 `已缓存改动(Staged Changes)`  里.
 6. 逐一检查及筛选将要提交的文件, 重复以上步骤添加到 已缓存改动 中. 在这个例子里我们只有一个文件需要提交.
 7. 在下方的文本框撰写提交说明, 提交说明是用于描述此次提交对整个项目的影响, 便于其他人(也包括将来的你自己)快速地进行检索. 推荐的格式将在附录中讲述, 现在先这样填写:
@@ -274,6 +274,8 @@ http://git-scm.org/
 
 8. 按上一节讲述的方法进行 <i>提交</i> 和 <i>上传</i>.
    <div class="alert alert-success">这样 Bob 就为项目贡献了自己的代码了, 并且这些更改已经被提交到 Github.</div>
+
+<div class="alert alert-info">你应该已经注意到了, git 每次都要求你输入远程仓库的身份验证信息. 但其实 git 客户端(或者说通过 linux 的一些配置式约定)具有记住身份验证信息的能力, 具体如何配置请自行谷歌. 我说的是谷歌, 不是百度, 最不济也请用雅虎(国际版)或者必应(国际版).</div>
 
 ### 关于分支的讲解
 
@@ -404,57 +406,71 @@ http://git-scm.org/
 
 解决冲突的方法有两个:
 
-* 如果 Hunk 的取舍是非此即彼的, 可以在 git-gui 中右键点击 Hunk, 然后选择保留 HEAD 或者 <i>branch-carol</i>, 又或者两个都不要.
-* 如果 Hunk 的调整比较复杂, 则必须用编辑器打开冲突的文件进行编辑, 完成后要将所有的 `<<<<<<<`, `=======`, `>>>>>>>` 标记删掉. github 会以此检查冲突是否都解决完了.
+* 如果冲突内容比较简单, 可以在 git-gui 中右键点击文件内容, 选择要保留的行/块/回滚.
+* 如果冲突内容比较复杂, 则必须用编辑器打开冲突的文件进行编辑(修改为最终需要保存的状态). 完成后要将所有的 `<<<<<<<`, `=======`, `>>>>>>>` 标记删掉. github 会以此检查冲突是否都解决完了.
+  <div class="alert alert-info">git-gui 的菜单列 `工具(Tools)` 提供了集成外部程序的能力, 可以通过配置追加直接调起外部程序(通常是编辑器)的菜单项, .</div>
 
 在此假定我们要保留 Carol 的版本:
 
 1. 用编辑器将从 `<<<<<<<` 到 `=======` 的范围删掉, 将 `>>>>>>>` 单独一行删掉.
 2. 保存后回到 git-gui, 要求 Rescan
-3. 通过和上一节相似的步骤完成 stage commit 和 push 操作.
+3. 通过和上一节相似的步骤完成 Carol commit 和 push 操作.
 
 注意我们为了演示如何解决冲突而<i>故意</i>让 Carol 制造冲突, 正确的展开应该是 Carol 注意到 Bob 添加了 HelloWorld.java 这个文件, Carol 从 master 建立 <i>branch-carol</i> 分支后, 应该先合并 <i>branch-bob</i> 然后再在 Bob 的基础上修改 HelloWorld.java .
 另外, 工作划分的科学性 和 程序设计的耦合度 也是影响冲突发生频度的重要因素. 理想的状况下的划分能尽量地避免触及到同一个文件, 相应地减小冲突的发生状况.
 
-## 5. 冋性鲛叐悱懈漃瀎 ｇi┳Ημb.ㄈ〇M 
+## 5. 冃.狌.交.伖，释.鲂.压.劦、棑.解.漃.瘼 ｇi┳Ημb。ㄈ〇M 
 
 <img src="https://octodex.github.com/images/collabocats.jpg" width="240px">
 
-<div class="alert alert-normal">标题取自...请自行百度, 题图来自 Github Octcat <a href="https://octodex.github.com/collabocats/">↗</a></div>
+<div class="alert alert-normal">标题由总监提供, 加好苃:scauwjh。立氪撩兲; 题图来自 Github Octcat <a href="https://octodex.github.com/collabocats/">↗</a></div>
+
 Github 是目前世界最大的程序<del>猿同性交友</del>源代码托管和协作网站, 围绕 git 的版本管理功能扩展了很多好玩的功能. 突出 社交化/开源/轻量 等要素.
 
 以下是为英语渣特别提供的讲解, 已经玩得很溜的同学可以跳过.
 
 ### Timeline & Dashboard
-登录之后的第一个画面就是 Timeline, 不过通常都没啥好看的, 因为大部分信息都没有价值.
 
-随便戳一个人的名字会去到他的个人主页(比如[副主任的](https://github.com/cuter44))左边是 biography(在 settings 中设定). 右侧分了好几块, 从上到下分别是:
+登录之后的第一个画面就是 Timeline, 不过通常都没啥好看的, 相比真・同性交友(喂)的 Timeline 来说这个也太干巴巴了.
+
+<div class="alert alert-normal">Github 标语是 be social , 但却从未在 Timeline 上下过丁点工夫. 相比之下 coding.net 在这方面做得比较有社交的味道. </div>
+
+随便戳一个人的名字会去到他的个人主页(比如[副主任的](https://github.com/cuter44)), 左边是 biography(在 settings 中设定). 右侧分了好几块, 从上到下分别是:
  
 * 页签 切换 <span class="glyphicon glyphicon-plus-sign"></span> 活动数据, <span class="glyphicon glyphicon-book"></span> 仓库列表, <span class="glyphicon glyphicon-align-left"></span> (那个用户的)timeline , 后两个不解释了.
 * 热门仓库 显示这个用户的受关注项目.
 * 贡献 显示活跃度, 某些人有把所有格子刷到全绿的嗜好...
-* 戳上面的小格子下面会列出具体的内容.
+* 戳上面的小格子下面会列出格子对应的那一天具体的活动记录.
 
 另外在别人的主页时右上角会有 <button class="btn btn-success">\_(:з」∠*)\_ Follow</button> 按钮, 意思是"请收下我的<del>菊花</del>膝盖". 
 
 ### Repository
 
-当遇见喜欢的 repo, 比如[这篇教程](https://github.com/scau-sidc/git-tutorial), 可以使用右上角有三个操作 <button class="btn btn-default">(ΦωΦ") Watch</button> <button class="btn btn-default">(☆ω☆") Star</button> <button class="btn btn-default">ฅ(・ω・ฅ) Fork</button>. 它们大致对应于蓝星微博的 收藏 点赞 转发 操作, 更详细的含义请自行在[Github的帮助系统](https://help.github.com/)搜索.
-旁边的数字表示 Watch/Star/Fork 这个仓库的人数, 戳进去可以看具体是谁.
+Repository 是 Github 的基本组织单元, 每个 repo 页对应着具体的仓库(比如我们刚刚一直在折腾的 <i>hello-world</i>). 通常项目作者在宣传自己项目的时候会通过粘贴 URL 或者 Widget 将访客引导到此. 另外也可以通过 搜索 和 Explore频道 在这数十万的仓库中拣选自己感兴趣的内容.
 
-### Issues
+以 [这篇教程](https://github.com/scau-sidc/git-tutorial) 的主页为例. 首先右上角三个操作:
+
+* <button class="btn btn-default">(ΦωΦ") Watch</button>: 激活后会收到仓库活动事件的通知, 比如作者有新发布, 有人提报 issue/PR, etc.
+* <button class="btn btn-default">(☆ω☆") Star</button>: 激活后会将此仓库加入到你的收藏列表, 这个列表可以在你自己的 Dashboard/Profile 页面查阅, 公开显示.
+* <button class="btn btn-default">ฅ(・ω・ฅ) Fork</button>: 点击后会在你/你参与的组织名下创建此仓库的派生副本. 关于派生副本请参照 [Github 提供的说明](https://help.github.com/articles/fork-a-repo/).
+
+按钮旁边的数字表示 Watch/Star/Fork 这个仓库的人数, 戳进去可以看具体是谁.
+
+之后在页面的<del>右侧</del>(改版后位于顶部二级导航栏), 其中 <span class="glyphicon glyphicon-console"></span> Code 展示这个仓库的主页以及列出文件. 其余的板块如下所列
+
+### <span class="glyphicon glyphicon-exclamation-sign"></span> Issues
 
 ![](./asset/github-issue.png)
 
 每个仓库都会附带一个轻量级的跟踪系统, 可以用于 你发现 bug 并且想报告给作者/向作者提问提建议/请求队友协助(比如要求新的API)/记录自己的待办事项. 通过这里报告 bug 之后责任者和大家都能够看到, 热心的责任者可能会联络你询问 bug 的细节, 或是答复你的报告.
 
-### Wiki
+### <span class="glyphicon glyphicon-list-alt"></span> Wiki
 
 ![](./asset/github-wiki.png)
 
 Wiki 就是关于这个软件如何使用的说明, 以及一些特性的解释等. 通常由仓库的责任者撰写, 对于开源项目还会有热心群众协助撰写和翻译.
 
-### Fork 和 Pull Request
+### <span class="glyphicon glyphicon-export"></span> Fork 和 <span class="glyphicon glyphicon-import"></span> Pull Request
 
 ![](./asset/github-pr.png)                    
 
@@ -484,7 +500,7 @@ Gist 通常是因为特定目的而撰写的小段代码. 其本质也是仓库,
 因为部分内容包含了某些真理所以通常都会被 GFW 墙掉.
 比如副主任的[正方抢课脚本](https://gist.github.com/cuter44/9460159)
 
-## 6. 某超科学的<del>附录</del>黑历史
+## 6. 某超科学的黑历史
 
 ### 超科学的提交描述文法
 
@@ -522,5 +538,8 @@ Gist 通常是因为特定目的而撰写的小段代码. 其本质也是仓库,
 ### 参考资料
 * 为了照顾那些幽默感退化的人们, git 的本家提供了严肃的 [git 教程](http://git-scm.com/book/zh/v2)(熟肉, 以及另外33种语言)
 * 超科学的分支实践法: [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/) by <i>Vincent Driessen</i>, 熟肉:[git分支最佳实践](http://segmentfault.com/a/1190000000434973) by SegmentFault   
+* Github 的教育扶持计划: [Github Education](https://education.github.com/)
 
+## 术语表
 
+(坑. MD 貌似不具有术语表的支持能力, 如果要写术语表貌似要手动插入大量标记. Someone help?)
