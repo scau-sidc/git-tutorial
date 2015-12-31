@@ -6,13 +6,13 @@
 
 # 超科学的 git 和 Github 讲座(その１)
 
-> @authors [github://scau-sidc/git-tutorial/contributors](https://github.com/scau-sidc/git-tutorial/graphs/contributors)  
-> @version 4.0.0-build20151215  
+> @authors @[github://scau-sidc/git-tutorial/contributors](https://github.com/scau-sidc/git-tutorial/graphs/contributors)  
+> @version 4.1.1-build20151231  
 > @license ![](https://i.creativecommons.org/l/by/3.0/cn/80x15.png) CC 3.0 BY CN  
 > @source [github://scau-sidc/git-tutorial](https://github.com/scau-sidc/git-tutorial/)    
 
 > Archives
-> * Ver. 2014 - [./index-archive-20141212.md](./index-archive-20141212.md)
+> * Ver. 2014 - [./index-archive-20141212.html](./index-archive-20141212.html)
 
 ## 0. What is ...
 通常来说这个时候应该说下 _git是什么_, 但为了 dismystification , 这里不会展开. 有兴趣的同学请自行[维基 ↗](http://zh.wikipedia.org/wiki/Git).   
