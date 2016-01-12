@@ -467,7 +467,7 @@ img {
 版本树的每一个 ● 提交 都是独立的状态(类比成游戏的存档), 于是你可以从任一个节点读档然后继续展开. 还有一个和游戏存档类似的特性是它们可以被分发, 在其他的机器上完全地再现.<br />
 而 <span style="background-color:#00ff00; border:1px solid;">分支</span> 和 <span style="background-color:yellow; border:1px solid;">Tag</span> 则起到命名标记的作用, 方便人类以视觉快速地找到某些特别的提交. 两者的区别是分支<i>通常</i>会随着提交和合并而自动演进, 而 Tag 则是完全静态的.</p>
 
-<div class="alert alert-danger">git 具有自动垃圾回收的功能, 分支和 tag 某种意义上起着 钉子 的作用. 版本树中, 没有被钉住的叶子节点会因为 unreferenced 而被销毁. </div>
+<div class="alert alert-danger">git 具有自动垃圾回收的功能, 分支和 tag 某种意义上起着 钉子 的作用. 版本树中, 没有被钉住的叶子节点会因为 unreferred 而被销毁. </div>
 
 <div class="alert alert-normal">不过在这篇教程的范围内是不会涉及这种进阶操作的啦 ฅ(・ω・ฅ)</div>
 
@@ -483,7 +483,7 @@ img {
 大概 2-3 人一组, 如果你正在独自观看这篇教程, 这意味着你需要至少找一个小伙伴或者以一人分饰两角.  <br />
 堂授课请使用 手心手背分组法 或者 抛硬币分组法 快速分为2-3人的小组.   </p>
 
-<div class="alert alert-info">遵循传统以下将使用 <a href="https://en.wikipedia.org/wiki/Alice_and_Bob">Alice, Bob and Carol</a> 作为角色代名. 请自行设定 cast.</div>
+<div class="alert alert-info">遵循传统以下将使用 <a href="https://en.wikipedia.org/wiki/Alice_and_Bob">Alice, Bob and Carol ↗</a> 作为角色代名. 请自行商讨由谁分别扮演这三个角色.</div>
 
 <h3>实验准备</h3>
 
@@ -497,9 +497,9 @@ img {
 <li><code>Name</code> 填写 <i>origin</i>, <code>Location</code> 使用之前复制的值. 确定.<br />
 <div class="alert alert-success">这样你们相互之间已经确定同一个同步关系了.</div><br />
 <div class="alert alert-info">对于既存的仓库还可以用 <code>克隆(clone)</code>, 相当于在(在本地创建仓库, 设定 origin 为源仓库地址, 复制源仓库内容)的命令集合.</div></li>
-<li>Alice 在 Github 打开自己的仓库, 选择 <span class="glyphicon glyphicon-cog"></span> Settings → <code>Collaborators</code>, 将 Bob 和 Carol 的账号加入到列表中<br />
+<li>Alice 在 Github 打开自己的仓库, 选择 <span class="glyphicon glyphicon-cog"></span> Settings → <span class="glyphicon glyphicon-user"></span> Collaborators, 将 Bob 和 Carol 的账号加入到列表中<br />
 <div class="alert alert-success">这样 Bob 和 Carol 就具有 hello-world 的写权限了.</div></li>
-<li>另外还有一项必要但与主题关系不大的工作: 三个人各自在 git-gui 打开 <code>编辑(Edit)</code> → <code>选项(Options)</code>, 在最上面两栏填写自己的 <code>用户名(User name)</code> 和 <code>邮件地址(Email Address)</code>. 不必要填写与 Github 一致. git 利用这两个字段标识代码的作者, 便于项目的参与者相互之间取得联系.</li>
+<li>另外还有一项必要但与主题关系不大的工作: 三个人各自在 git-gui 打开 <code>编辑(Edit)</code> → <code>选项(Options)</code>, 在最上面两栏填写自己的 <code>用户名(User name)</code> 和 <code>邮件地址(Email address)</code>. 不必要填写与 Github 一致. git 利用这两个字段标识代码的作者, 便于项目的参与者相互之间取得联系.</li>
 </ol>
 
 <h3>提交(commit)</h3>
@@ -526,12 +526,12 @@ int main(int argc, char *argv[])
 <li>打开 git-gui, 文件 <code>hellow.c</code> 会出现在左上角 <code>未缓存的改动(UnCarold Changes)</code> 区域里, 表示 git 检测到你的改动了. 如果没看到, 点击下方的 <code>重新扫描(Rescan)</code>, 要求 git 检查改动.</li>
 <li>点击 <code>hellow.c</code> 的图标, 它会转移到左下方的 <code>已缓存改动(Staged Changes)</code>  里.</li>
 <li>逐一检查及筛选将要提交的文件, 重复以上步骤添加到 已缓存改动 中. 在这个例子里我们只有一个文件需要提交.</li>
-<li><p>在下方的文本框撰写提交说明, 提交说明是用于描述此次提交对整个项目的影响, 便于其他人(也包括将来的你自己)快速地进行检索. 推荐的格式将在附录中讲述, 现在先这样填写:</p>
+<li><p>在下方的文本框撰写提交说明, 提交说明是用于描述此次提交对整个项目的影响, 便于其他人(也包括将来的你自己)快速地进行检索. 推荐的格式将在<a href="#appendix-commit-msg">附录</a>中讲述, 现在先这样填写:</p>
 
 <pre><code>inital commit.
 </code></pre>
 
-<div class="alert alert-normal">恭喜你们当中的一部分已经拿下本工作室的成就(之一), First Blood:取得某个项目的 inital commit</div></li>
+<div class="alert alert-normal">恭喜你们之中饰演 Alice 的童鞋已经拿下本工作室的成就(之一), <br /><i>First Blood</i>:取得某个项目的 inital commit</div></li>
 <li>现在可以点 <code>提交(commit)</code> 了<br />
 <div class="alert alert-success">至此 hellow.c 就已经进入 <strong>Alice 的本地仓库</strong>了. 不信的话可以打开 gitk 确认.</div></li>
 <li>在你认为你的工作成果需要共享给别人的时候, 点 <code>上传(push)</code>. <br />
@@ -608,17 +608,20 @@ public class HelloWorld {
 如果你们已经做过需要组队完成的课程设计作业, 那你们一定进行过类似这样的流程: 拿到一个大任务(Epic) → 按人员拆分每个人负责一部分(Task &amp; Assign) → (各自完成任务) → 归集各人的成果并进行组装 → 测试装配起来的成品是否符合初期目标 → 更改部件和重新组装, 重复直至满足目标为止.  <br />
 在之前的实验中我们已经完成...呃...大概第三步的工作了, 一切都很顺利. 但之后就会变成噩梦, 组长为了组装各个部件可能需要对不具合的部分进行修剪和删改. 以人力来完成会非常...蛋疼(比如思政的那些××调查报告之类).  <br />
 分支为这种场景提供解决方案. 通过和队友准实时地共享工作状态, 可以解决闭门造车的问题. git 则为分支提供进一步支持, 所有人每次提交的细节(改了哪些文件的哪些行, 谁改的, 谁先谁后...)都被记录在案, git 则利用这些信息来进行自动合并或者辅助人工合并.  <br />
-分支有如下一些特性:<br />
-1. 和植物的芽一样, 分支可以从任意 commit 分出. 在之前实验的分支操作中, 对话框还有一个字段是 <code>Starting Revision</code>, 可以从这里选择分支点.<br />
-2. 分支可以相互合并, 如果没有冲突, git 可以按预期的结果自动合并不同分支间的差异. <br />
-3. 分支可以随便命名, 所以你想叫它做猫又或者九摩诃都是可以的. 一个仓库最开始的分支名字叫做 master, 这也是可以随意更改的. 通常将 master 作为主要分支, 专用于汇合所有人的提交.<br />
-4. 此外还有一个<br />
-伪的"分支"名字叫做 HEAD , 它始终指向当前 checkout 的提交点.<br />
-5. 分支在每个远程仓库中通常有一个同名的 <code>跟踪分支(Tracking Branch)</code>, 表示这个分支在另一个仓库的同位物.<br />
-6. gitk中, 分支名带有<span style="background-color:#ffd8aa; border:1px solid black;">嫩肉色前缀</span>的分支表示远程分支, 表示对应跟踪分支的位置, 在 fetch 操作时自动更新. 通常无法手动更改.<br />
-7. 因为跟踪分支存在于另一个仓库中, 远程分支只是跟踪分支在本地的影, 所以位于本地仓库的本体和跟踪分支在物理上是两个分支.(看不懂的请无视)<br />
-8. 因为(某分支的)跟踪分支和(该跟踪分支的)远程分支其实只是影与本体的区别, 所以在无歧义的情况下通常将两者混用.  <br />
-9. 一个分支(包括其跟踪分支)通常只由一个人写. 多个人写同个分支会退化成线性的情况, 最终结果是像 SVN 一样产生大量冲突.</p>
+分支有如下一些特性:</p>
+
+<ol>
+<li>和植物的芽一样, 分支可以从任意 commit 分出. 在之前实验的分支操作中, 对话框还有一个字段是 <code>Starting Revision</code>, 可以从这里选择分支点.</li>
+<li>分支可以相互合并, 如果没有冲突, git 可以按预期的结果自动合并不同分支间的差异. </li>
+<li>分支可以随便命名, 所以你想叫它做猫又或者九摩诃都是可以的. 一个仓库最开始的分支名字叫做 master, 这也是可以随意更改的. 通常将 master 作为主要分支, 专用于汇合所有人的提交.</li>
+<li>此外还有一个<br />
+伪的"分支"名字叫做 HEAD , 它始终指向当前 checkout 的提交点.</li>
+<li>分支在每个远程仓库中通常有一个同名的 <code>跟踪分支(Tracking Branch)</code>, 表示这个分支在另一个仓库的同位物.</li>
+<li>gitk中, 分支名带有<span style="background-color:#ffd8aa; border:1px solid black;">嫩肉色前缀</span>的分支表示远程分支, 表示对应跟踪分支的位置, 在 fetch 操作时自动更新. 通常无法手动更改.</li>
+<li>因为跟踪分支存在于另一个仓库中, 远程分支只是跟踪分支在本地的影, 所以位于本地仓库的本体和跟踪分支在物理上是两个分支.(看不懂的请无视)</li>
+<li>因为(某分支的)跟踪分支和(该跟踪分支的)远程分支其实只是影与本体的区别, 所以在无歧义的情况下通常将两者混用.  </li>
+<li>一个分支(包括其跟踪分支)通常只由一个人写. 多个人写同个分支会退化成线性的情况, 最终结果是像 SVN 一样产生大量冲突.</li>
+</ol>
 
 <h3>合并更改, 以及冲突(Conflict)</h3>
 
@@ -659,7 +662,9 @@ public class HelloWorld {
         System.out.println(randomString(-229985452) + " " + randomString(-147909649));
     }
 }
-</code></pre></li>
+</code></pre>
+
+<div class="alert alert-normal">不要问我为什么这两个神奇的数字会输出 hello world. 请自行 SO.</div></li>
 <li><p>按上一节讲述的方法进行 <i>提交</i> 和 <i>上传</i>.</p></li>
 </ol>
 
@@ -711,6 +716,8 @@ public class HelloWorld {
 + }
   &gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/branch-carol
 </code></pre>
+
+<p><div class="alert alert-normal">你实际看到的内容可能与上面列出的不同, 因为上面这段其实是副主任脑补出来的, 请以实际内容为准.<br />又及: 本章所有实验都是副主任脑内出来的, 副主任其实从来没有实践过本章的任何实验.(截图也是 PS 出来的(才怪</div></p>
 
 <p>并且在 HelloWorld.java 里也是相似的内容. 这些由 git 添加的标记含义如下:</p>
 
@@ -833,6 +840,8 @@ PR 亦可以在同仓库内进行. 比如 Bob 在完成 HelloWorld.java 后不�
 
 <h3>超科学的提交描述文法</h3>
 
+<p><a id="appendix-commit-msg"></a></p>
+
 <p>最开始工作室开荒的时候, 大家都不是很懂, 于是提交描述各种乱来...</p>
 
 <pre><code>整合
@@ -871,6 +880,7 @@ PR 亦可以在同仓库内进行. 比如 Bob 在完成 HelloWorld.java 后不�
 
 <ul>
 <li>为了照顾那些幽默感退化的人们, git 的本家提供了严肃的 <a href="http://git-scm.com/book/zh/v2">git 教程</a>(熟肉, 以及另外33种语言)</li>
+<li>如果觉得以上两者的画风都不对, 这里还有  <a href="https://github.com/michaelliao/learngit">github://michaelliao/learngit</a> 可供食用, 附带小电影.</li>
 <li>超科学的分支实践法: <a href="http://nvie.com/posts/a-successful-git-branching-model/">A successful Git branching model</a> by <i>Vincent Driessen</i>, 熟肉:<a href="http://segmentfault.com/a/1190000000434973">git分支最佳实践</a> by SegmentFault   </li>
 <li>Github 的教育扶持计划: <a href="https://education.github.com/">Github Education</a></li>
 </ul>

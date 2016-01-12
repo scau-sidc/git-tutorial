@@ -164,7 +164,7 @@ http://git-scm.org/
 版本树的存在意义在于, 你可以创造无数平行的小宇宙↑. 这些小宇宙有相对独立的时间线, 但相互之间可以相互干涉或者融合.
 版本树的每一个 ● 提交 都是独立的状态(类比成游戏的存档), 于是你可以从任一个节点读档然后继续展开. 还有一个和游戏存档类似的特性是它们可以被分发, 在其他的机器上完全地再现.
 而 <span style="background-color:#00ff00; border:1px solid;">分支</span> 和 <span style="background-color:yellow; border:1px solid;">Tag</span> 则起到命名标记的作用, 方便人类以视觉快速地找到某些特别的提交. 两者的区别是分支<i>通常</i>会随着提交和合并而自动演进, 而 Tag 则是完全静态的.
-<div class="alert alert-danger">git 具有自动垃圾回收的功能, 分支和 tag 某种意义上起着 钉子 的作用. 版本树中, 没有被钉住的叶子节点会因为 unreferenced 而被销毁. </div>
+<div class="alert alert-danger">git 具有自动垃圾回收的功能, 分支和 tag 某种意义上起着 钉子 的作用. 版本树中, 没有被钉住的叶子节点会因为 unreferred 而被销毁. </div>
 <div class="alert alert-normal">不过在这篇教程的范围内是不会涉及这种进阶操作的啦 ฅ(・ω・ฅ)</div>
 
 版本树实际存储在项目文件夹之中, 一个名为 `.git` 的隐藏文件夹里. 如果不小心删掉的话所有历史记录都将会消失.
@@ -179,7 +179,7 @@ http://git-scm.org/
 大概 2-3 人一组, 如果你正在独自观看这篇教程, 这意味着你需要至少找一个小伙伴或者以一人分饰两角.  
 堂授课请使用 手心手背分组法 或者 抛硬币分组法 快速分为2-3人的小组.   
 
-<div class="alert alert-info">遵循传统以下将使用 <a href="https://en.wikipedia.org/wiki/Alice_and_Bob">Alice, Bob and Carol</a> 作为角色代名. 请自行设定 cast.</div>
+<div class="alert alert-info">遵循传统以下将使用 <a href="https://en.wikipedia.org/wiki/Alice_and_Bob">Alice, Bob and Carol ↗</a> 作为角色代名. 请自行商讨由谁分别扮演这三个角色.</div>
 
 ### 实验准备
 
@@ -192,9 +192,9 @@ http://git-scm.org/
 7. `Name` 填写 <i>origin</i>, `Location` 使用之前复制的值. 确定.
    <div class="alert alert-success">这样你们相互之间已经确定同一个同步关系了.</div>
    <div class="alert alert-info">对于既存的仓库还可以用 `克隆(clone)`, 相当于在(在本地创建仓库, 设定 origin 为源仓库地址, 复制源仓库内容)的命令集合.</div>
-8. Alice 在 Github 打开自己的仓库, 选择 <span class="glyphicon glyphicon-cog"></span> Settings → `Collaborators`, 将 Bob 和 Carol 的账号加入到列表中
+8. Alice 在 Github 打开自己的仓库, 选择 <span class="glyphicon glyphicon-cog"></span> Settings → <span class="glyphicon glyphicon-user"></span> Collaborators, 将 Bob 和 Carol 的账号加入到列表中
    <div class="alert alert-success">这样 Bob 和 Carol 就具有 hello-world 的写权限了.</div>
-9. 另外还有一项必要但与主题关系不大的工作: 三个人各自在 git-gui 打开 `编辑(Edit)` → `选项(Options)`, 在最上面两栏填写自己的 `用户名(User name)` 和 `邮件地址(Email Address)`. 不必要填写与 Github 一致. git 利用这两个字段标识代码的作者, 便于项目的参与者相互之间取得联系.
+9. 另外还有一项必要但与主题关系不大的工作: 三个人各自在 git-gui 打开 `编辑(Edit)` → `选项(Options)`, 在最上面两栏填写自己的 `用户名(User name)` 和 `邮件地址(Email address)`. 不必要填写与 Github 一致. git 利用这两个字段标识代码的作者, 便于项目的参与者相互之间取得联系.
     
  
 ### 提交(commit)
@@ -220,11 +220,11 @@ http://git-scm.org/
 4. 打开 git-gui, 文件 `hellow.c` 会出现在左上角 `未缓存的改动(UnCarold Changes)` 区域里, 表示 git 检测到你的改动了. 如果没看到, 点击下方的 `重新扫描(Rescan)`, 要求 git 检查改动.
 5. 点击 `hellow.c` 的图标, 它会转移到左下方的 `已缓存改动(Staged Changes)`  里.
 6. 逐一检查及筛选将要提交的文件, 重复以上步骤添加到 已缓存改动 中. 在这个例子里我们只有一个文件需要提交.
-7. 在下方的文本框撰写提交说明, 提交说明是用于描述此次提交对整个项目的影响, 便于其他人(也包括将来的你自己)快速地进行检索. 推荐的格式将在附录中讲述, 现在先这样填写:
+7. 在下方的文本框撰写提交说明, 提交说明是用于描述此次提交对整个项目的影响, 便于其他人(也包括将来的你自己)快速地进行检索. 推荐的格式将在[附录](#appendix-commit-msg)中讲述, 现在先这样填写:
 
 		inital commit.
 
-   <div class="alert alert-normal">恭喜你们当中的一部分已经拿下本工作室的成就(之一), First Blood:取得某个项目的 inital commit</div>
+   <div class="alert alert-normal">恭喜你们之中饰演 Alice 的童鞋已经拿下本工作室的成就(之一), <br /><i>First Blood</i>:取得某个项目的 inital commit</div>
 8. 现在可以点 `提交(commit)` 了
    <div class="alert alert-success">至此 hellow.c 就已经进入 <strong>Alice 的本地仓库</strong>了. 不信的话可以打开 gitk 确认.</div>
 9. 在你认为你的工作成果需要共享给别人的时候, 点 `上传(push)`. 
@@ -299,6 +299,7 @@ http://git-scm.org/
 在之前的实验中我们已经完成...呃...大概第三步的工作了, 一切都很顺利. 但之后就会变成噩梦, 组长为了组装各个部件可能需要对不具合的部分进行修剪和删改. 以人力来完成会非常...蛋疼(比如思政的那些××调查报告之类).  
 分支为这种场景提供解决方案. 通过和队友准实时地共享工作状态, 可以解决闭门造车的问题. git 则为分支提供进一步支持, 所有人每次提交的细节(改了哪些文件的哪些行, 谁改的, 谁先谁后...)都被记录在案, git 则利用这些信息来进行自动合并或者辅助人工合并.  
 分支有如下一些特性:
+
 1. 和植物的芽一样, 分支可以从任意 commit 分出. 在之前实验的分支操作中, 对话框还有一个字段是 `Starting Revision`, 可以从这里选择分支点.
 2. 分支可以相互合并, 如果没有冲突, git 可以按预期的结果自动合并不同分支间的差异. 
 3. 分支可以随便命名, 所以你想叫它做猫又或者九摩诃都是可以的. 一个仓库最开始的分支名字叫做 master, 这也是可以随意更改的. 通常将 master 作为主要分支, 专用于汇合所有人的提交.
@@ -348,6 +349,8 @@ http://git-scm.org/
 		    }
 		}
 
+   <div class="alert alert-normal">不要问我为什么这两个神奇的数字会输出 hello world. 请自行 SO.</div>
+
 8. 按上一节讲述的方法进行 <i>提交</i> 和 <i>上传</i>.
 
 在此假设 Alice 是项目组组长, 负有整合项目的职责, 接下来她需要这么做:
@@ -395,6 +398,8 @@ http://git-scm.org/
     +     }
     + }
       >>>>>>> origin/branch-carol
+
+   <div class="alert alert-normal">你实际看到的内容可能与上面列出的不同, 因为上面这段其实是副主任脑补出来的, 请以实际内容为准.<br />又及: 本章所有实验都是副主任脑内出来的, 副主任其实从来没有实践过本章的任何实验.(截图也是 PS 出来的(才怪</div>
 
 并且在 HelloWorld.java 里也是相似的内容. 这些由 git 添加的标记含义如下:
 
@@ -504,6 +509,8 @@ Gist 通常是因为特定目的而撰写的小段代码. 其本质也是仓库,
 
 ### 超科学的提交描述文法
 
+<a id="appendix-commit-msg"></a>
+
 最开始工作室开荒的时候, 大家都不是很懂, 于是提交描述各种乱来...
 
     整合
@@ -537,6 +544,7 @@ Gist 通常是因为特定目的而撰写的小段代码. 其本质也是仓库,
 
 ### 参考资料
 * 为了照顾那些幽默感退化的人们, git 的本家提供了严肃的 [git 教程](http://git-scm.com/book/zh/v2)(熟肉, 以及另外33种语言)
+* 如果觉得以上两者的画风都不对, 这里还有  [github://michaelliao/learngit](https://github.com/michaelliao/learngit) 可供食用, 附带小电影.
 * 超科学的分支实践法: [A successful Git branching model](http://nvie.com/posts/a-successful-git-branching-model/) by <i>Vincent Driessen</i>, 熟肉:[git分支最佳实践](http://segmentfault.com/a/1190000000434973) by SegmentFault   
 * Github 的教育扶持计划: [Github Education](https://education.github.com/)
 
